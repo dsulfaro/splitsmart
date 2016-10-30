@@ -77,9 +77,3 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#
-production:
-  <<: *default
-  database: Splitwise_production
-  username: Splitwise
-  password: <%= ENV['SPLITWISE_DATABASE_PASSWORD'] %>
