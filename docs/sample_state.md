@@ -14,15 +14,15 @@
     1: {
       description: "Water bill",
       date: "10-01-2016",
-      lender_id: 1,
-      ower_id: 2,
+      lender: "alice",
+      ower: "bob",
       amount: 20
     },
     2: {
       description: "Dinner",
       date: "10-31-2016",
-      lender_id: 2,
-      ower_id: 1,
+      lender: "bob",
+      ower: "alice",
       amount: 14
     }
   },
@@ -34,6 +34,18 @@
     3: {
       id: 3,
       username: "bob"
+    }
+  },
+
+  // non-friends
+  users : {
+    4: {
+      id: 4,
+      username: "charlie"
+    },
+    5; {
+      id: 5,
+      username: "danielle"
     }
   }
 }

@@ -8,6 +8,10 @@
   - Header
   - AuthForm
 
+**Header**
+  - Logo
+  - Signin/Login OR Signout
+
 **HomeContainer**
   - Header
   + Sidebar
@@ -29,10 +33,8 @@
       - Friend Name
       + Settle Up
       + Add Expense
-    - Transactions Index
-      + Transactions Index Item
     + Sidebar
-    + Balance
+    - Balance
 
 **Transactions Index Item**
   - Date Issued
@@ -47,6 +49,7 @@
     - Friend Search
     + Friends Index
       - Friend Name
+    + Search Users
     + Invite Friends Form
       - Email
       - Send
