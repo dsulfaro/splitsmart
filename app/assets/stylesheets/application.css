@@ -13,3 +13,125 @@
  *= require_tree .
  *= require_self
  */
+
+ html, body, header, nav, h1, a, ul, li, strong, main, section, img,
+ div, h2, h3, p, h4, h5, h6, form, fieldset, label, input,
+ textarea, button, article, footer, small {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     outline: 0;
+     font: inherit;
+     box-sizing: inherit;
+     text-align: inherit;
+     text-decoration: inherit;
+     vertical-align: inherit;
+     color: inherit;
+     background: transparent;
+     font-family: 'Lato', sans-serif;
+ }
+
+
+header {
+ background-color: #5bc5a7;
+ color: white;
+}
+
+.main-nav {
+  margin: 10px;
+  margin: auto;
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Times New Roman';
+  font-size: 24px;
+  margin-top: 12px;
+}
+
+.main-nav button{
+  text-shadow: 0 -1px 0 #318970;
+  margin: 12px;
+  font-size: 14px;
+  border-radius: 3px;
+  box-shadow: 1px 1px #318970;
+  padding: 5px 10px;
+}
+
+#login-button {
+  border: 1px solid #4ab4b6;
+}
+
+#login-button:hover {
+  background-color: #4ca58c;
+  border: 1px solid #4ca58c;
+}
+
+#signup-button {
+  background-color: #ff652f;
+}
+
+#signup-button:hover {
+  background-color: #c83400;
+}
+
+#logout-button {
+  border: 1px solid #4ab4b6;
+}
+
+#logout-button:hover {
+  background-color: #4ca58c;
+  border: 1px solid #4ca58c;
+}
+
+.login-form {
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  padding: 10px;
+  color: #222;
+  font-size: 14px;
+}
+
+.login-form input {
+  width: 230px;
+  margin-bottom: 8px;
+  padding: 4px;
+  display: block;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#login-submit {
+  background-color: #5bc5a7;
+  text-align: center;
+  color: white;
+  text-shadow: 0 -1px 0 #318970;
+  border: 1px solid #4ab4b6;
+}
+
+#login-submit:hover {
+  background-color: #4ca58c;
+  border: 1px solid #4ca58c;
+}
+
+#guest-login-submit {
+  background-color: #ff652f;
+  text-align: center;
+  color: white;
+  text-shadow: 0 -1px 0 #318970;
+  border: 1px solid #c83400;
+}
+
+#guest-login-submit:hover {
+  background-color: #c83400;
+}
+
+.show {
+  visibility: visible;
+}

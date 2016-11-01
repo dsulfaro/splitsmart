@@ -50,9 +50,7 @@
     + Friends Index
       - Friend Name
     + Search Users
-    + Invite Friends Form
-      - Email
-      - Send
+    + Pending Friend Requests
 
 **Balance**
   - Total balance

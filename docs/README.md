@@ -23,7 +23,7 @@ SplitSmart is a web app inspired by SplitWise: an app that allows you to split b
 - Objective: Functioning rails project with front-end auth
 
 ### Phase 2: Friends Implementation (3 days)
-- Objective: Adding and deleting friends + user search
+- Objective: Adding and deleting friends, pending friend requests, and user search
 
 ### Phase 3: Expenses (2 days)
 - Objective: Create and delete/settle up payments
