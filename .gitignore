@@ -18,3 +18,5 @@
 node_modules/
 bundle.js
 bundle.js.map
+
+.reauthor_git_commits
