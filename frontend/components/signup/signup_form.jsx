@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 
 class SignupForm extends React.Component {
 
@@ -23,24 +24,32 @@ class SignupForm extends React.Component {
     });
   }
 
-  handleGuestLogin(e) {
-    e.preventDefault();
-    console.log("Guest Login");
+  printErrors() {
+    return (
+      <ul>
+        {this.props.errors.map( (e, i) => <li key={i}>{e}</li>)}
+      </ul>
+    );
   }
 
   render () {
     return (
       <div className="signup-form">
+        <h2>Welcome to SplitSmart!</h2>
         <form>
           <input type="text"
                  placeholder="Username"
-                 onChange={this.update("username")} />
+                 onChange={this.update("username")}
+                 id="signup-form-username"/>
           <input type="password"
                  placeholder="Password"
-                 onChange={this.update("password")} />
+                 onChange={this.update("password")}
+                 id="signup-form-password" />
           <input type="submit"
-                 value="Log in to SplitSmart"
-                 onClick={this.handleSignupSubmit} />
+                 value="Sign in to SplitSmart"
+                 onClick={this.handleSignupSubmit}
+                 id="signup-form-submit"/>
+               {this.printErrors}
         </form>
       </div>
     );

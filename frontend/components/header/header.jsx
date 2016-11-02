@@ -11,6 +11,7 @@ class Header extends React.Component {
     };
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   componentDidUpdate() {
@@ -49,14 +50,20 @@ class Header extends React.Component {
     });
   }
 
+  handleGuestLogin(e) {
+    e.preventDefault();
+    this.props.login({username: "guest", password: "password"});
+  }
+
   render() {
     if (!this.props.currentUser) {
       return (
         <header>
           <nav className="main-nav">
-            <Link to="/"><h2 className="logo">S  p  l  i  t  S  m  a  r  t</h2></Link>
+            <Link to="/"><h2 className="logo">SPLITSMART</h2></Link>
             <nav>
               <button onClick={this.showLoginForm} id="login-button">Log In</button>
+              <p>or</p>
               <Link to="/signup"><button id="signup-button">Sign Up</button></Link>
               <form className="login-form">
                 {this.printErrors}
@@ -78,7 +85,7 @@ class Header extends React.Component {
       return (
         <header>
           <nav className="main-nav">
-            <Link to="/"><h2 className="logo">S  p  l  i  t  S  m  a  r  t</h2></Link>
+            <Link to="/"><h2 className="logo">SPLITSMART</h2></Link>
             <nav>
               <button onClick={this.handleLogout} id="logout-button">Logout</button>
             </nav>

@@ -32,23 +32,29 @@
  }
 
 
+
+
+/* ---------- Navbar ---------- */
 header {
  background-color: #5bc5a7;
  color: white;
+ box-shadow: 0 1px 0 #ccc;
 }
 
 .main-nav {
   margin: 10px;
   margin: auto;
-  width: 75%;
+  width: 52%;
   display: flex;
   justify-content: space-between;
 }
 
 .logo {
-  font-family: 'Times New Roman';
-  font-size: 24px;
-  margin-top: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  color: #eee;
+  letter-spacing: 10px;
+  font-size: 22px;
+  margin-top: 13px;
 }
 
 .main-nav button{
@@ -68,6 +74,8 @@ header {
   background-color: #4ca58c;
   border: 1px solid #4ca58c;
 }
+
+.main-nav p { display: inline; }
 
 #signup-button {
   background-color: #ff652f;
@@ -134,4 +142,55 @@ header {
 
 .show {
   visibility: visible;
+}
+
+
+
+
+/* ---------- Sign Up ----------*/
+.signup-form {
+  width: 34%;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.signup-form > h2 {
+  text-align: center;
+  font-size: 1.7em;
+}
+
+.signup-form input {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  transition: all .2s ease-in;
+}
+
+#signup-form-username:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
+#signup-form-password:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
+#signup-form-submit {
+  background-color: #ff652f;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 8px;
+  border: 1px solid #c83400;
+  box-shadow: 1px 1px #c83400;
+  transition: all .1s ease-in;
+}
+
+#signup-form-submit:hover {
+  background-color: #c83400;
 }
