@@ -1,0 +1,4 @@
+## change author on all past commits for current repo. use wisely. ##
+
+
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='Dan Sulfaro'; GIT_AUTHOR_EMAIL='dsulfaro1@gmail.com'; GIT_COMMITTER_NAME='Dan Sulfaro'; GIT_COMMITTER_EMAIL='dsulfaro1@gmail.com';" HEAD
