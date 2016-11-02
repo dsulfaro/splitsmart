@@ -3,13 +3,28 @@ import {withRouter} from 'react-router';
 
 class SignupForm extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       username: "",
       password: ""
     };
     this.handleSignupSubmit = this.handleSignupSubmit.bind(this);
+    this.redirectIfLoggedIn = this.redirectIfLoggedIn.bind(this);
+  }
+
+  componentDidMount() {
+    this.redirectIfLoggedIn();
+  }
+
+  componentDidUpdate() {
+    this.redirectIfLoggedIn();
+  }
+
+  redirectIfLoggedIn() {
+    if (this.props.loggedIn){
+      this.props.router.push("/")
+    }
   }
 
   handleSignupSubmit(e) {
@@ -25,11 +40,13 @@ class SignupForm extends React.Component {
   }
 
   printErrors() {
-    return (
-      <ul>
-        {this.props.errors.map( (e, i) => <li key={i}>{e}</li>)}
-      </ul>
-    );
+    if (this.props.errors) {
+      return (
+        <ul id="signup-errors">
+          {this.props.errors.map( (e, i) => <li key={i}>{e}</li>)}
+        </ul>
+      );
+    }
   }
 
   render () {
@@ -49,7 +66,7 @@ class SignupForm extends React.Component {
                  value="Sign in to SplitSmart"
                  onClick={this.handleSignupSubmit}
                  id="signup-form-submit"/>
-               {this.printErrors}
+               {this.printErrors()}
         </form>
       </div>
     );

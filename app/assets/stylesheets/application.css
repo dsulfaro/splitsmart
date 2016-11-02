@@ -194,3 +194,9 @@ header {
 #signup-form-submit:hover {
   background-color: #c83400;
 }
+
+#signup-errors {
+  margin-top: 5px;
+  list-style: none;
+  text-align: center;
+}

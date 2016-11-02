@@ -61,6 +61,16 @@ class Header extends React.Component {
     this.props.login({username: "guest", password: "password"});
   }
 
+  printErrors() {
+    if (this.props.errors) {
+      return (
+        <ul id="signup-errors">
+          {this.props.errors.map( (e, i) => <li key={i}>{e}</li>)}
+        </ul>
+      );
+    }
+  }
+
   render() {
     if (!this.props.currentUser) {
       return (
@@ -85,6 +95,7 @@ class Header extends React.Component {
                      <input type="submit" onClick={this.handleGuestLogin}
                             value="Guest Sign In"
                             id="guest-login-submit" />
+                          {this.printErrors()}
               </form>
             </nav>
           </nav>
