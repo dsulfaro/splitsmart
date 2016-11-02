@@ -3,6 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from './app';
 import SignupFormContainer from './signup/signup_form_container';
+import SplashContainer from './splash/splash_container';
+import DashboardContainer from './dashboard/dashboard_container';
 
 class Root extends React.Component {
 
@@ -11,9 +13,9 @@ class Root extends React.Component {
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
   }
 
-  _redirectIfLoggedIn() {
+  _redirectIfLoggedIn(nextState, replace) {
     if (this.props.store.getState().session.currentUser) {
-      this.props.router.replace("/");
+      replace("/dashboard");
     }
   }
 
@@ -22,7 +24,9 @@ class Root extends React.Component {
       <Provider store={this.props.store}>
         <Router history={hashHistory}>
           <Route path="/" component={App}>
-            <Route path="/signup" component={SignupFormContainer} />
+            <IndexRoute component={ SplashContainer } onEnter={this._redirectIfLoggedIn} />
+            <Route path = "/dashboard" component={ DashboardContainer } />
+            <Route path="/signup" component={SignupFormContainer} onEnter={this._redirectIfLoggedIn} />
           </Route>
         </Router>
       </Provider>

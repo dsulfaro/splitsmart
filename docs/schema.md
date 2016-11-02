@@ -12,8 +12,8 @@ session_token   | string    | not null
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-user1_id        | integer   | not null, foreign key(references users)
-user2_id        | integer   | not null, foreign key(references users)
+sender_id       | integer   | not null, foreign key(references users)
+receiver_id     | integer   | not null, foreign key(references users)
 
 ## expenses
 column name     | data type | details

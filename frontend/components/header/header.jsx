@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter, hashHistory } from 'react-router';
 
 class Header extends React.Component {
 
@@ -17,7 +17,7 @@ class Header extends React.Component {
 
   componentDidUpdate() {
     if (this.props.loggedIn){
-      this.props.router.push("/");
+      this.props.router.push("/dashboard");
     }
   }
 
@@ -30,6 +30,7 @@ class Header extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.login(user);
+    hashHistory.push("/dashboard");
   }
 
   handleLogout(e) {
@@ -59,6 +60,7 @@ class Header extends React.Component {
   handleGuestLogin(e) {
     e.preventDefault();
     this.props.login({username: "guest", password: "password"});
+    hashHistory.push("/dashboard");
   }
 
   printErrors() {
@@ -117,4 +119,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);
