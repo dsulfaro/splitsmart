@@ -12,12 +12,18 @@ class Header extends React.Component {
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   componentDidUpdate() {
     if (this.props.loggedIn){
       this.props.router.push("/");
     }
+  }
+
+  hideForm(e) {
+    e.preventDefault();
+    $(".login-form").removeClass("show");
   }
 
   handleLoginSubmit(e) {
@@ -65,7 +71,7 @@ class Header extends React.Component {
               <button onClick={this.showLoginForm} id="login-button">Log In</button>
               <p>or</p>
               <Link to="/signup"><button id="signup-button">Sign Up</button></Link>
-              <form className="login-form">
+              <form className="login-form" onMouseLeave={this.hideForm}>
                 {this.printErrors}
                 <input type="text"
                        placeholder="Username"
@@ -73,8 +79,12 @@ class Header extends React.Component {
                 <input type="password"
                        placeholder="Password"
                        onChange={this.update("password")} />
-                     <input type="submit" onClick={this.handleLoginSubmit} value="Sign in to SplitSmart" id="login-submit"></input>
-                     <input type="submit" onClick={this.handleGuestLogin} value="Guest Sign In" id="guest-login-submit"></input>
+                     <input type="submit" onClick={this.handleLoginSubmit}
+                            value="Sign in to SplitSmart"
+                            id="login-submit" />
+                     <input type="submit" onClick={this.handleGuestLogin}
+                            value="Guest Sign In"
+                            id="guest-login-submit" />
               </form>
             </nav>
           </nav>
