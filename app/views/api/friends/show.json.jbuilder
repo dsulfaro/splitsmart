@@ -1,1 +1,1 @@
-json.partial! "api/friends/friend", friendship: @friendship
+json.partial! "api/friends/friend", friend: @friend

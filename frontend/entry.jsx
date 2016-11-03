@@ -4,10 +4,11 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // FOR TESTING //
-import { requestFriendship, approveFriendship, denyFriendship } from './util/friends_api_util';
-window.requestFriendship = requestFriendship;
-window.approveFriendship = approveFriendship;
-window.denyFriendship = denyFriendship;
+// import { requestFriendship, approveFriendship, denyFriendship, fetchAllFriends } from './util/friends_api_util';
+// window.requestFriendship = requestFriendship;
+// window.approveFriendship = approveFriendship;
+// window.denyFriendship = denyFriendship;
+// window.fetchAllFriends = fetchAllFriends;
 
 
 document.addEventListener('DOMContentLoaded', () => {

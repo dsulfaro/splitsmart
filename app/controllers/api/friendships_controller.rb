@@ -13,7 +13,7 @@ class Api::FriendshipsController < ApplicationController
       status: "requesting"
       })
 
-    @friendship = pending
+    @friend = User.find_by_id(params[:friend_id])
 
     if pending.valid? && requesting.valid?
       pending.save
@@ -34,7 +34,7 @@ class Api::FriendshipsController < ApplicationController
       friend_id: current_user.id
       })
 
-    @friendship = accepting
+    @friend = User.find_by_id(params[:friend_id])
 
     if pending && accepting
       pending.status = "accepted"
@@ -57,7 +57,7 @@ class Api::FriendshipsController < ApplicationController
       friend_id: current_user.id
       })
 
-    @friendship = friend1
+    @friend = User.find_by_id(params[:friend_id])
 
     if friend1 && friend2
       Friendship.destroy(friend1)
