@@ -110,6 +110,7 @@ class Header extends React.Component {
           <nav className="main-nav">
             <Link to="/"><h2 className="logo">SPLITSMART</h2></Link>
             <nav>
+              <p>{this.props.currentUser.username}</p>
               <button onClick={this.handleLogout} id="logout-button">Logout</button>
             </nav>
           </nav>

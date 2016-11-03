@@ -243,6 +243,17 @@ header {
   background-color: #c83400;
 }
 
+/* Dashboard */
+#dashboard {
+  height: 900px;
+  width: 52%;
+  box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.2), -12px 0 8px -4px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  border-left: 1px solid #666;
+  border-right: 1px solid #666;
+  border-top: 1px solid #666;
+}
+
 
 /* ---------- Footer ---------- */
 footer {
