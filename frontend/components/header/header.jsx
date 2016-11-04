@@ -15,12 +15,6 @@ class Header extends React.Component {
     this.hideForm = this.hideForm.bind(this);
   }
 
-  componentDidUpdate() {
-    if (this.props.loggedIn){
-      this.props.router.push("/dashboard");
-    }
-  }
-
   hideForm(e) {
     e.preventDefault();
     $(".login-form").removeClass("show");
@@ -30,7 +24,6 @@ class Header extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.login(user);
-    hashHistory.push("/dashboard");
   }
 
   handleLogout(e) {

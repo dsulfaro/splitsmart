@@ -4,11 +4,13 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // FOR TESTING //
-// import { requestFriendship, approveFriendship, denyFriendship, fetchAllFriends } from './util/friends_api_util';
-// window.requestFriendship = requestFriendship;
-// window.approveFriendship = approveFriendship;
-// window.denyFriendship = denyFriendship;
-// window.fetchAllFriends = fetchAllFriends;
+import { fetchAllFriendsUtil } from './util/friends_api_util';
+import { receiveAllFriends, fetchAllFriends } from './actions/friend_actions';
+import { selectAllFriends } from './reducers/selectors';
+window.fetchAllFriendsUtil = fetchAllFriendsUtil;
+window.receiveAllFriends = receiveAllFriends;
+window.fetchAllFriends = fetchAllFriends;
+window.selectAllFriends = selectAllFriends;
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     else {
       store = configureStore();
     }
+
     const root = document.getElementById('root');
     window.store = store;
     ReactDOM.render(<Root store={store} />, root);

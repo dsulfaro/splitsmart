@@ -1,4 +1,4 @@
-export const fetchAllFriends = (success, error) => {
+export const fetchAllFriendsUtil = (success, error) => {
   $.ajax({
     method: 'GET',
     url: '/api/friends',
@@ -7,7 +7,7 @@ export const fetchAllFriends = (success, error) => {
   });
 };
 
-export const requestFriendship = (friendId, success, error) => {
+export const requestFriendshipUtil = (friendId, success, error) => {
   $.ajax({
     method: 'POST',
     url: `/api/friendships`,
@@ -17,7 +17,7 @@ export const requestFriendship = (friendId, success, error) => {
   });
 };
 
-export const approveFriendship = (friendId, success, error) => {
+export const approveFriendshipUtil = (friendId, success, error) => {
   $.ajax({
     method: 'PATCH',
     url: `/api/friendships/${friendId}`,
@@ -27,7 +27,7 @@ export const approveFriendship = (friendId, success, error) => {
   });
 };
 
-export const denyFriendship = (friendId, success, error) => {
+export const denyFriendshipUtil = (friendId, success, error) => {
   $.ajax({
     method: 'DELETE',
     url: `/api/friendships/${friendId}`,

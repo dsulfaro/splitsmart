@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
  html, body, header, nav, h1, a, ul, li, strong, main, section, img,
@@ -245,13 +246,69 @@ header {
 
 /* Dashboard */
 #dashboard {
-  height: 900px;
+  height: 800px;
   width: 52%;
-  box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.2), -12px 0 8px -4px rgba(0, 0, 0, 0.2);
   margin: auto;
+  margin-bottom: 15px;
+  display: flex;
+}
+
+/* Friends Sidebar*/
+
+#friends-sidebar {
+  margin-top: 15px;
+  width: 170px;
+}
+
+#dashboard-title {
+  font-size: 18px;
+  border-left: 5px solid #5bc5a7;
+  padding-left: 5px;
+  color: #5bc5a7;
+}
+
+.fa {
+  font-family: 'Ariel' , sans-serif;
+}
+
+#friends-section {
+  margin-top: 15px;
+}
+
+.friends-title {
+  font-size: 14px;
+  background-color: #f6f6f6;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  color: #ccc;
+  padding: 2px;
+}
+
+.friends-list {
+  list-style: none;
+}
+
+.friends-list > li {
+  width: 90%;
+  padding: 3px;
+  margin: 7px;
+  color: #999;
+}
+
+.friends-list > li:hover {
+  background-color: #f6f6f6;
+  color: #444;
+}
+
+/* Expenses */
+#expenses {
+  width: 500px;
+  margin: 0px 30px;
+  height: 100%;
+  box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.1), -12px 0 8px -4px rgba(0, 0, 0, 0.1);
   border-left: 1px solid #666;
   border-right: 1px solid #666;
-  border-top: 1px solid #666;
+
 }
 
 

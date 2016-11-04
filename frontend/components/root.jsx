@@ -5,6 +5,7 @@ import App from './app';
 import SignupFormContainer from './signup/signup_form_container';
 import SplashContainer from './splash/splash_container';
 import DashboardContainer from './dashboard/dashboard_container';
+import { fetchAllFriends } from '../actions/friend_actions';
 
 class Root extends React.Component {
 
@@ -24,9 +25,13 @@ class Root extends React.Component {
       <Provider store={this.props.store}>
         <Router history={hashHistory}>
           <Route path="/" component={App}>
-            <IndexRoute component={ SplashContainer } onEnter={this._redirectIfLoggedIn} />
-            <Route path = "/dashboard" component={ DashboardContainer } />
-            <Route path="/signup" component={SignupFormContainer} onEnter={this._redirectIfLoggedIn} />
+            <IndexRoute component={ SplashContainer }
+                        onEnter={this._redirectIfLoggedIn} />
+            <Route path = "/dashboard"
+                   component={ DashboardContainer } />
+            <Route path="/signup"
+                   component={SignupFormContainer}
+                   onEnter={this._redirectIfLoggedIn} />
           </Route>
         </Router>
       </Provider>

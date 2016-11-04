@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
     through: :friendships
 
   has_many :pending,
-    -> { Friendship.requesting },
+    -> { Friendship.pending },
     through: :friendships,
     source: :friend
 
   has_many :requesting,
-    -> { Friendship.pending },
+    -> { Friendship.requesting },
     through: :friendships,
     source: :friend
 

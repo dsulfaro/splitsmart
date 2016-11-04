@@ -2,7 +2,9 @@ class Api::FriendsController < ApplicationController
 
   def index
     @friends = current_user.friends
-    render 'api/friends/index'
+    @pending = current_user.pending
+    @requesting = current_user.requesting
+    @users = User.joins(:friendships)
   end
 
 end

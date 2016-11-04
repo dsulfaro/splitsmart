@@ -4,13 +4,13 @@ import Header from './header';
 
 const mapStateToProps = ({ session }) => ({
   currentUser: session.currentUser,
-  loggeIn: Boolean(session.currentUser),
+  loggedIn: Boolean(session.currentUser),
   errors: session.errors
 });
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
-  login: id => dispatch(login(id)),
+  login: user => dispatch(login(user)),
   signup: user => dispatch(signup(user))
 
 });
