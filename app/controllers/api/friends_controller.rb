@@ -4,7 +4,7 @@ class Api::FriendsController < ApplicationController
     @friends = current_user.friends
     @pending = current_user.pending
     @requesting = current_user.requesting
-    @users = User.joins(:friendships)
+    @users = User.all - @friends - @pending - @requesting - [current_user]
   end
 
 end

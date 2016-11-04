@@ -8,7 +8,8 @@ import { selectFriends, selectPending, selectRequesting } from '../../reducers/s
 const mapStateToProps = store => ({
   friends: store.friends.friends,
   pending: store.friends.pending,
-  requesting: store.friends.requesting
+  requesting: store.friends.requesting,
+  users: store.friends.users
 });
 
 const mapDispatchToProps = dispatch => ({

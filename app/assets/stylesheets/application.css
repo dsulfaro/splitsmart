@@ -246,7 +246,7 @@ header {
 
 /* Dashboard */
 #dashboard {
-  height: 800px;
+  height: 110%;
   width: 52%;
   margin: auto;
   margin-bottom: 15px;
@@ -300,6 +300,36 @@ header {
   color: #444;
 }
 
+#user-search {
+  margin-top: 5px;
+  border: 1px solid #e5e5e5;
+}
+
+#find-friends {
+  font-size: 14px;
+  padding: 3px;
+  text-shadow: 0 -1px 0 #318970;
+  background-color: #5bc5a7;
+  color: white;
+}
+
+#user-search-input {
+  padding: 3px;
+  font-size: 16px;
+  border-bottom: 1px solid #e5e5e5;
+  width: 98%;
+}
+
+#filtered-users-list {
+  list-style: none;
+  font-size: 14px;
+}
+
+#filtered-users-list > li {
+  padding: 5px;
+}
+
+
 /* Expenses */
 #expenses {
   width: 500px;
@@ -308,7 +338,6 @@ header {
   box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.1), -12px 0 8px -4px rgba(0, 0, 0, 0.1);
   border-left: 1px solid #666;
   border-right: 1px solid #666;
-
 }
 
 

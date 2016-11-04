@@ -1,5 +1,6 @@
 import React from 'react';
 import FriendsIndexContainer from './friends_index_container';
+import UserSearchContainer from './user_search_container';
 
 class FriendsSidebar extends React.Component {
   render () {
@@ -10,6 +11,7 @@ class FriendsSidebar extends React.Component {
           &nbsp; Dashboard
         </h2>
         <FriendsIndexContainer />
+        <UserSearchContainer />
       </aside>
     );
   }
