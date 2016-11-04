@@ -11,8 +11,8 @@ class Header extends React.Component {
     };
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-    this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.hideForm = this.hideForm.bind(this);
+    // this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   hideForm(e) {
@@ -22,7 +22,10 @@ class Header extends React.Component {
 
   handleLoginSubmit(e) {
     e.preventDefault();
-    const user = this.state;
+    let user = this.state;
+    if (this.state.username === "" && this.state.password === "" && e.currentTarget.value === "Guest Sign In"){
+      user = {username: "guest", password: "password"}
+    }
     this.props.login(user);
   }
 
@@ -48,12 +51,6 @@ class Header extends React.Component {
     return e => this.setState({
       [property]: e.currentTarget.value
     });
-  }
-
-  handleGuestLogin(e) {
-    e.preventDefault();
-    this.props.login({username: "guest", password: "password"});
-    hashHistory.push("/dashboard");
   }
 
   printErrors() {
@@ -87,7 +84,7 @@ class Header extends React.Component {
                      <input type="submit" onClick={this.handleLoginSubmit}
                             value="Sign in to SplitSmart"
                             id="login-submit" />
-                     <input type="submit" onClick={this.handleGuestLogin}
+                          <input type="submit" onClick={this.handleLoginSubmit}
                             value="Guest Sign In"
                             id="guest-login-submit" />
                           {this.printErrors()}

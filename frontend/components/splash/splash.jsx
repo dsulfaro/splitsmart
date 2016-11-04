@@ -10,8 +10,8 @@ class Splash extends React.Component {
 
   handleDemoLogin(e) {
     e.preventDefault();
-    this.props.login({username: "guest", password: "password"});
-    this.props.router.push("/dashboard");
+    let user = {username: "guest", password: "password"}
+    this.props.login(user);
   }
 
   handleGetStarted(e) {
