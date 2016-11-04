@@ -12,7 +12,6 @@ class Header extends React.Component {
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.hideForm = this.hideForm.bind(this);
-    // this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   hideForm(e) {

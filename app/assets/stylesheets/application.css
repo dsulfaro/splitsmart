@@ -288,16 +288,40 @@ header {
   list-style: none;
 }
 
+.friends-list p {
+  display: inline;
+}
+
+.friends-list button {
+  float: right;
+  padding: 0px 3px;
+}
+
+#accept-friend {
+  transition: all .08s ease-in;
+}
+
+#accept-friend:hover {
+  color: white;
+  background-color: #59ba6c;
+  border-radius: 5px;
+}
+
+#deny-friend {
+  transition: all .08s ease-in;
+}
+
+#deny-friend:hover {
+  color: white;
+  background-color: #e03333;
+  border-radius: 5px;
+}
+
 .friends-list > li {
-  width: 90%;
+  width: 150px;
   padding: 3px;
   margin: 7px;
   color: #999;
-}
-
-.friends-list > li:hover {
-  background-color: #f6f6f6;
-  color: #444;
 }
 
 #user-search {
@@ -327,6 +351,10 @@ header {
 
 #filtered-users-list > li {
   padding: 5px;
+}
+
+#filtered-users-list > li:hover {
+  background-color: #e5e5e5;
 }
 
 

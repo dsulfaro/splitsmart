@@ -4,13 +4,13 @@ class Api::FriendshipsController < ApplicationController
     pending = Friendship.create({
       user_id: current_user.id,
       friend_id: params[:friend_id],
-      status: "pending"
+      status: "requesting"
       })
 
     requesting = Friendship.create({
       user_id: params[:friend_id],
       friend_id: current_user.id,
-      status: "requesting"
+      status: "pending"
       })
 
     @friend = User.find_by_id(params[:friend_id])

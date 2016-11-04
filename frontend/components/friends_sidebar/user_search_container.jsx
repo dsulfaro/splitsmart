@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { requestFriend } from '../../actions/friend_actions';
 import UserSearch from './user_search';
 
 const mapStateToProps = store => ({
@@ -6,7 +7,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  requestFriend: friend => dispatch(requestFriend(friend))
 });
 
 export default connect(

@@ -5,6 +5,17 @@ class UserSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {search: ""}
+    this.sendRequest = this.sendRequest.bind(this);
+  }
+
+  sendRequest(e) {
+    let user;
+    for (let i = 0; i < this.props.users.length; i++){
+      if (this.props.users[i].username === e.currentTarget.innerHTML){
+        user = this.props.users[i];
+      }
+    }
+    this.props.requestFriend(user);
   }
 
   matchUsers() {
@@ -12,7 +23,10 @@ class UserSearch extends React.Component {
       return (
         this.props.users.map( (user, idx) => {
           if (user.username.includes(this.state.search) && this.state.search !== "") {
-            return <li key={idx}>{user.username}</li>
+            return <li key={idx}
+                      onClick={this.sendRequest}>
+                      {user.username}
+                    </li>
           }
         })
       );

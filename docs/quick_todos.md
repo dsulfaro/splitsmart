@@ -2,3 +2,4 @@
 - logging out gives errors when navigating away and then coming back to page
 - loading spinners
 - attaching a cb - invoking it or ... || changing state in render
+- make friendships index more efficient

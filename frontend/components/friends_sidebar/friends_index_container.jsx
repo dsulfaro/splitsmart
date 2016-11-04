@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import FriendsIndex from './friends_index';
 import { fetchAllFriends,
         fetchPendingFriends,
-        fetchRequestingFriends } from '../../actions/friend_actions';
-import { selectFriends, selectPending, selectRequesting } from '../../reducers/selectors';
+        fetchRequestingFriends,
+        approveFriend } from '../../actions/friend_actions';
 
 const mapStateToProps = store => ({
   friends: store.friends.friends,
@@ -13,7 +13,8 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllFriends: () => dispatch(fetchAllFriends())
+  fetchAllFriends: () => dispatch(fetchAllFriends()),
+  approveFriend: friend => dispatch(approveFriend(friend))
 });
 
 export default connect(
