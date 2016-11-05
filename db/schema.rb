@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102182823) do
+ActiveRecord::Schema.define(version: 20161104222418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expenses", force: :cascade do |t|
+    t.integer  "lender_id",   null: false
+    t.integer  "ower_id",     null: false
+    t.float    "amount",      null: false
+    t.float    "total",       null: false
+    t.text     "description", null: false
+    t.boolean  "settled",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id",    null: false

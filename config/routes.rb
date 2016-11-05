@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy, :show]
     resources :friendships, only: [:create, :update, :destroy]
+    resources :expenses, only: [:index, :create, :update, :destroy]
   end
 
   get 'api/friends', to: 'api/friends#index', defaults: { format: :json }

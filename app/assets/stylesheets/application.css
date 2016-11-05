@@ -32,7 +32,9 @@
      font-family: 'Lato', sans-serif;
  }
 
-/* ---------- Navbar ---------- */
+ /* ----------------------------------------------------------------- */
+ /* ---------- Navbar ----------------------------------------------- */
+ /* ----------------------------------------------------------------- */
 header {
  background-color: #5bc5a7;
  color: white;
@@ -85,12 +87,12 @@ header {
 }
 
 #logout-button {
-  border: 1px solid #4ab4b6;
+  background-color: #ff652f;
+  box-shadow: 1px 1px #c83400;
 }
 
 #logout-button:hover {
-  background-color: #4ca58c;
-  border: 1px solid #4ca58c;
+  background-color: #c83400;
 }
 
 .login-form {
@@ -102,7 +104,7 @@ header {
   padding: 10px;
   color: #222;
   font-size: 14px;
-  border-radius: 5px;
+  border-radius: 0px 0px 8px 8px;
 }
 
 .login-form input {
@@ -150,10 +152,9 @@ header {
   visibility: visible;
 }
 
-
-
-
-/* ---------- Sign Up ----------*/
+/* ----------------------------------------------------------------- */
+/* ---------- Sign Up ---------------------------------------------- */
+/* ----------------------------------------------------------------- */
 .signup-form {
   width: 34%;
   margin: 0 auto;
@@ -207,7 +208,9 @@ header {
   text-align: center;
 }
 
-/* ---------- Splash Page ---------- */
+/* ----------------------------------------------------------------- */
+/* ---------- Splash ----------------------------------------------- */
+/* ----------------------------------------------------------------- */
 .splash-section {
   text-align: center;
   margin-top: 30px;
@@ -280,7 +283,7 @@ header {
   background-color: #f6f6f6;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
-  color: #ccc;
+  color: #bbb;
   padding: 2px;
 }
 
@@ -324,6 +327,7 @@ header {
   color: #999;
 }
 
+
 #user-search {
   margin-top: 5px;
   border: 1px solid #e5e5e5;
@@ -341,22 +345,39 @@ header {
   padding: 3px;
   font-size: 16px;
   border-bottom: 1px solid #e5e5e5;
-  width: 98%;
+  width: 96.7%;
+  height: 75%;
+}
+
+#user-search-input:focus {
+  outline: none;
+  border-color: #ff874f;
+  box-shadow: 0 0 10px #ff874f;
 }
 
 #filtered-users-list {
+  margin-top: -1px;
   list-style: none;
   font-size: 14px;
 }
 
 #filtered-users-list > li {
   padding: 5px;
+  transition: all .07s ease-in;
 }
 
 #filtered-users-list > li:hover {
-  background-color: #e5e5e5;
+  background-color: #ff652f;
+  color: white;
 }
 
+.searched-user p {
+  display: inline;
+}
+
+.fa-plus {
+  color: white;
+}
 
 /* Expenses */
 #expenses {

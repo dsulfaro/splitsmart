@@ -31,3 +31,34 @@ Friendship.create!({user_id: 4, friend_id: 3, status: "pending"})
 # Natalie and Frank are friends
 Friendship.create!({user_id: 4, friend_id: 5, status: "accepted"})
 Friendship.create!({user_id: 5, friend_id: 4, status: "accepted"})
+
+# Dan owes Nick $5
+Expense.create!({lender_id: 3,
+                ower_id: 2,
+                amount: 5.00,
+                total: 10.00,
+                description: "oreos",
+                settled: false });
+
+# Nick owes Dan $2
+Expense.create!({lender_id: 2,
+                ower_id: 3,
+                amount: 2.00,
+                total: 5.00,
+                description: "uber",
+                settled: false });
+
+# Dan paid Nick $3.50
+Expense.create!({lender_id: 3,
+                ower_id: 2,
+                amount: 3.50,
+                total: 7.00,
+                description: "pizza",
+                settled: true });
+
+Expense.create!({lender_id: 3,
+                ower_id: 2,
+                amount: 10.01,
+                total: 22.00,
+                description: "electricity",
+                settled: false });

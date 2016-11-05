@@ -3,7 +3,8 @@ import FriendsIndex from './friends_index';
 import { fetchAllFriends,
         fetchPendingFriends,
         fetchRequestingFriends,
-        approveFriend } from '../../actions/friend_actions';
+        approveFriend,
+        denyFriend } from '../../actions/friend_actions';
 
 const mapStateToProps = store => ({
   friends: store.friends.friends,
@@ -14,7 +15,8 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchAllFriends: () => dispatch(fetchAllFriends()),
-  approveFriend: friend => dispatch(approveFriend(friend))
+  approveFriend: friend => dispatch(approveFriend(friend)),
+  denyFriend: friend => dispatch(denyFriend(friend))
 });
 
 export default connect(

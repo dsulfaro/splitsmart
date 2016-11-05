@@ -5,6 +5,8 @@ class FriendsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.accept = this.accept.bind(this);
+    this.deny = this.deny.bind(this);
+    this._findUserInPending = this._findUserInPending.bind(this);
   }
 
   componentDidMount() {
@@ -12,20 +14,28 @@ class FriendsIndex extends React.Component {
   }
 
   accept(e) {
+    this.props.approveFriend(this._findUserInPending(e));
+  }
+
+  deny(e) {
+    this.props.denyFriend(this._findUserInPending(e));
+  }
+
+  _findUserInPending(e) {
     let user;
     for (let i = 0; i < this.props.pending.length; i++){
       if (this.props.pending[i].username === e.currentTarget.value){
         user = this.props.pending[i];
       }
     }
-    this.props.approveFriend(user)
+    return user;
   }
 
   renderFriends() {
     if (this.props.friends && this.props.friends !== {}) {
       return (
         <section id="friends">
-          <h3 className="friends-title">Friends</h3>
+          <h3 className="friends-title">My Friends</h3>
           <ul className="friends-list">
             {this.props.friends.map( (f, i) => <li key={i}>
               <i className="fa fa-user-o" aria-hidden="true"></i>
@@ -47,13 +57,14 @@ class FriendsIndex extends React.Component {
     if (this.props.pending && this.props.pending != {}) {
       return (
         <section id="pending">
-          <h3 className="friends-title">Pending</h3>
+          <h3 className="friends-title">Pending Friend Requests</h3>
           <ul className="friends-list" id="x">
             {this.props.pending.map( (p, i) => <li key={i} className="pending-item">
               <i className="fa fa-user-o" aria-hidden="true"></i>
                 &nbsp;<p>{p.username}</p>
               <button id="deny-friend"
-                      value={p.id}>
+                      value={p.username}
+                      onClick={this.deny} >
                         <i className="fa fa-times" aria-hidden="true" ></i>
               </button>
               <button id="accept-friend"
@@ -78,7 +89,7 @@ class FriendsIndex extends React.Component {
     if (this.props.requesting && this.props.requesting != {}) {
       return (
         <section id="requesting">
-          <h3 className="friends-title">Requesting</h3>
+          <h3 className="friends-title">Sent Requests</h3>
           <ul className="friends-list">
             {this.props.requesting.map( (r, i) => <li key={i}>
               <i className="fa fa-user-o" aria-hidden="true"></i>

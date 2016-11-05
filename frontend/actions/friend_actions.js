@@ -8,6 +8,7 @@ export const APPROVE_FRIEND = "APPROVE_FRIEND";
 export const RECEIVE_APPROVED_FRIEND = "RECEIVE_APPROVED_FRIEND";
 
 export const DENY_FRIEND = "DENY_FRIEND";
+export const RECEIVE_DENIED_FRIEND = "RECEIVE_DENIED_FRIEND";
 
 export const fetchAllFriends = friends => ({
   type: FETCH_ALL_FRIENDS,
@@ -41,5 +42,10 @@ export const receiveApprovedFriend = friend => ({
 
 export const denyFriend = friend => ({
   type: DENY_FRIEND,
+  friend
+});
+
+export const receiveDeniedFriend = friend => ({
+  type: RECEIVE_DENIED_FRIEND,
   friend
 });

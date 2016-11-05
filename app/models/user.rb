@@ -24,6 +24,34 @@ class User < ActiveRecord::Base
     through: :friendships,
     source: :friend
 
+  # self is owed money
+  has_many :still_owed,
+    -> { Expense.unsettled },
+    class_name: "Expense",
+    primary_key: :id,
+    foreign_key: :lender_id
+
+  # self owes another user
+  has_many :still_owes,
+    -> { Expense.unsettled },
+    class_name: "Expense",
+    primary_key: :id,
+    foreign_key: :ower_id
+
+  # other users paid self these expenses
+  has_many :settled_loans,
+    -> { Expense.settled },
+    class_name: "Expense",
+    primary_key: :id,
+    foreign_key: :lender_id
+
+  # self paid other users these expenses
+  has_many :settled_payments,
+    -> { Expense.settled },
+    class_name: "Expense",
+    primary_key: :id,
+    foreign_key: :ower_id
+
   after_initialize :ensure_session_token
 
   attr_reader :password
@@ -51,6 +79,20 @@ class User < ActiveRecord::Base
     self.session_token = User.generate_session_token
     self.save!
     self.session_token
+  end
+
+  def balance
+    self.still_owed.sum(:amount) - self.still_owes.sum(:amount)
+  end
+
+  def all_unsettled_expenses
+    Expense.where("lender_id = #{self.id} OR ower_id = #{self.id}")
+           .where("settled = false")
+           .order("created_at")
+  end
+
+  def i_owe_friend(friend_id)
+    Expense.where("lender_id = #{friend_id}")
   end
 
   private

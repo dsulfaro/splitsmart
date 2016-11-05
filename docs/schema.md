@@ -24,6 +24,7 @@ ower_id         | integer   | not null, foreign key(references users)
 amount          | float     | not null
 total           | float     | not null
 description     | text      | not null
+settled         | boolean   | not null
 timestamp       | timestamp | not null
 
 ## comments

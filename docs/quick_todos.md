@@ -1,5 +1,5 @@
 - splash buttons / buttons in general -> add focus color
 - logging out gives errors when navigating away and then coming back to page
 - loading spinners
-- attaching a cb - invoking it or ... || changing state in render
-- make friendships index more efficient
+- make friendships index more efficient ALSO put index in friends?
+- user search - NO USERS FOUND if no users found
