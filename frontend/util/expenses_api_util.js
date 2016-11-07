@@ -11,7 +11,7 @@ export const fetchUnsettled = (success, friendId, error) => {
   $.ajax({
     method: 'GET',
     url: 'api/expenses',
-    data: {friend_id: 3},
+    data: {friend_id: friendId},
     success,
     error
   });

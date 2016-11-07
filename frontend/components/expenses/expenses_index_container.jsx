@@ -4,7 +4,8 @@ import { fetchAllExpenses } from '../../actions/expenses_actions';
 import ExpensesIndex from './expenses_index';
 
 const mapStateToProps = store => ({
-  expenses: store.expenses
+  expenses: store.expenses,
+  currentUser: store.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

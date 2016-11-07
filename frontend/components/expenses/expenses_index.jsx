@@ -21,7 +21,7 @@ class ExpensesIndex extends React.Component {
           </nav>
           <ul className="expenses-list">
             {this.props.expenses.map( (e, i) => {
-              return <ExpenseIndexItem expense={e} key={i} />
+              return <ExpenseIndexItem expense={e} key={i} currentUser={this.props.currentUser}/>
             })}
           </ul>
         </section>

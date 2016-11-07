@@ -6,7 +6,7 @@ import SignupFormContainer from './signup/signup_form_container';
 import SplashContainer from './splash/splash_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import ExpenseFriendContainer from './expenses/expense_friend_container';
-import { fetchAllFriends } from '../actions/friend_actions';
+import { fetchAllFriends, fetchExpenses } from '../actions/friend_actions';
 import ExpensesIndexContainer from './expenses/expenses_index_container';
 
 class Root extends React.Component {
@@ -31,7 +31,7 @@ class Root extends React.Component {
                         onEnter={this._redirectIfLoggedIn} />
             <Route path="/dashboard" component={ DashboardContainer }>
               <IndexRoute component={ ExpensesIndexContainer } />
-              <Route path="/friends/:id" component={ExpenseFriendContainer} />
+              <Route path="/friends/:id" component={ExpenseFriendContainer}/>
             </Route>
             <Route path="/signup"
                    component={SignupFormContainer}

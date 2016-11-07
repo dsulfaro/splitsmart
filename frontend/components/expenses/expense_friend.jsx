@@ -7,7 +7,7 @@ class ExpenseFriend extends React.Component {
     super();
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     this.props.fetchExpenses(this.props.routeParams.id);
   }
 
