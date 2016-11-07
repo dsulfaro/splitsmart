@@ -3,3 +3,5 @@
 - loading spinners
 - make friendships index more efficient ALSO put index in friends?
 - user search - NO USERS FOUND if no users found
+- add arrow key functionality to User Search
+- if expense description is too long, replace with ...

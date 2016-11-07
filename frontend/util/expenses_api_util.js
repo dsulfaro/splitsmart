@@ -4,8 +4,8 @@ export const fetchAllUnsettled = (success, error) => {
     url: 'api/expenses',
     success,
     error
-  })
-}
+  });
+};
 
 export const fetchUnsettled = (success, friendId, error) => {
   $.ajax({
@@ -15,4 +15,10 @@ export const fetchUnsettled = (success, friendId, error) => {
     success,
     error
   });
-}
+};
+
+export const addExpense = (success, expense) => {
+  $.ajax({
+
+  });
+};

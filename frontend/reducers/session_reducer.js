@@ -3,6 +3,7 @@ import { RECEIVE_CURRENT_USER,
          RECEIVE_ERRORS,
          LOGOUT } from '../actions/session_actions';
 import merge from 'lodash/merge';
+import { hashHistory } from 'react-router';
 
 const _defaultState = {
   currentUser: null,
