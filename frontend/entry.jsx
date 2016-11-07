@@ -4,13 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // FOR TESTING //
-import { fetchAllFriendsUtil } from './util/friends_api_util';
-import { receiveAllFriends, fetchAllFriends } from './actions/friend_actions';
-import { selectAllFriends } from './reducers/selectors';
-window.fetchAllFriendsUtil = fetchAllFriendsUtil;
-window.receiveAllFriends = receiveAllFriends;
-window.fetchAllFriends = fetchAllFriends;
-window.selectAllFriends = selectAllFriends;
+import { fetchAllExpenses } from './actions/expenses_actions';
+window.fetch = fetchAllExpenses;
 
 
 document.addEventListener('DOMContentLoaded', () => {

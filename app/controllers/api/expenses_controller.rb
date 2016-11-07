@@ -1,7 +1,11 @@
 class Api::ExpensesController < ApplicationController
 
   def index
-    @expenses = current_user.all_unsettled_expenses
+    if params[:friend_id]
+      @expenses = current_user.all_expenses(params[:friend_id])
+    else
+      @expenses = current_user.all_unsettled_expenses
+    end
   end
 
   def create

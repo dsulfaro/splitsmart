@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class FriendsIndex extends React.Component {
 
@@ -7,10 +8,15 @@ class FriendsIndex extends React.Component {
     this.accept = this.accept.bind(this);
     this.deny = this.deny.bind(this);
     this._findUserInPending = this._findUserInPending.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllFriends();
+  }
+
+  handleClick(url) {
+    this.props.router.push(url)
   }
 
   accept(e) {
@@ -36,8 +42,9 @@ class FriendsIndex extends React.Component {
       return (
         <section id="friends">
           <h3 className="friends-title">My Friends</h3>
-          <ul className="friends-list">
-            {this.props.friends.map( (f, i) => <li key={i}>
+          <ul className="friends-list frand">
+            {this.props.friends.map( (f, i) => <li key={i}
+            onClick={() => {this.handleClick(`friends/${f.id}`)}}>
               <i className="fa fa-user-o" aria-hidden="true"></i>
                 &nbsp;{f.username}
               </li>
@@ -120,4 +127,4 @@ class FriendsIndex extends React.Component {
   }
 }
 
-export default FriendsIndex;
+export default withRouter(FriendsIndex);

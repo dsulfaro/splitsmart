@@ -45,7 +45,7 @@ header {
 .main-nav {
   margin: 10px;
   margin: auto;
-  width: 52%;
+  width: 1000px;
   display: flex;
   justify-content: space-between;
 }
@@ -247,16 +247,20 @@ header {
   background-color: #c83400;
 }
 
-/* Dashboard */
+/* ----------------------------------------------------------------- */
+/* ---------- Dashboard -------------------------------------------- */
+/* ----------------------------------------------------------------- */
 #dashboard {
   height: 110%;
-  width: 52%;
+  width: 800px;
   margin: auto;
   margin-bottom: 15px;
   display: flex;
 }
 
-/* Friends Sidebar*/
+/* ----------------------------------------------------------------- */
+/* ---------- Friends ---------------------------------------------- */
+/* ----------------------------------------------------------------- */
 
 #friends-sidebar {
   margin-top: 15px;
@@ -298,6 +302,10 @@ header {
 .friends-list button {
   float: right;
   padding: 0px 3px;
+}
+
+.frand > li:hover {
+  background-color: #f4f4f4;
 }
 
 #accept-friend {
@@ -379,18 +387,114 @@ header {
   color: white;
 }
 
-/* Expenses */
-#expenses {
+/* ----------------------------------------------------------------- */
+/* ---------- Expenses --------------------------------------------- */
+/* ----------------------------------------------------------------- */
+.expenses-main {
   width: 500px;
   margin: 0px 30px;
   height: 100%;
   box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.1), -12px 0 8px -4px rgba(0, 0, 0, 0.1);
-  border-left: 1px solid #666;
-  border-right: 1px solid #666;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 }
 
+.expenses-nav {
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
 
-/* ---------- Footer ---------- */
+.expenses-feed {
+  font-size: 22px;
+}
+
+.add-bill {
+  background-color: #ff652f;
+  box-shadow: 1px 1px #c83400;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 3px;
+}
+
+.add-bill:hover {
+  background-color: #c83400;
+}
+
+.expense-index-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.expense-index-item:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+.expenses-list {
+  list-style: none;
+}
+
+.expense-date {
+  width: 30px;
+  text-align: center;
+  color: #999;
+}
+
+.expense-date-month {
+  font-size: 12px;
+}
+
+.expense-info {
+  display: flex;
+}
+
+.expense-description {
+  margin-top: 6px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.expense-payments {
+  display: flex;
+  justify-content: space-between;
+  width: 145px;
+}
+
+.paid {
+  text-align: center;
+  float: left;
+}
+
+.lender {
+  font-size: 12px;
+  color: #999;
+}
+
+.total {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.due {
+  text-align: center;
+}
+
+.ower {
+  font-size: 12px;
+  color: #999;
+}
+
+.amount {
+  font-size: 15px;
+  font-weight: bold;
+}
+/* ----------------------------------------------------------------- */
+/* ---------- Footer ----------------------------------------------- */
+/* ----------------------------------------------------------------- */
 footer {
   width: 97.9%;
   background-color: #666;

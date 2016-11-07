@@ -20,9 +20,9 @@ Friendship.create!({user_id: 3, friend_id: 2, status: 'accepted'})
 Friendship.create!({user_id: 2, friend_id: 5, status: 'requesting'})
 Friendship.create!({user_id: 5, friend_id: 2, status: 'pending'})
 
-# Natalie sends request to Dan
-Friendship.create!({user_id: 4, friend_id: 2, status: "requesting"})
-Friendship.create!({user_id: 2, friend_id: 4, status: "pending"})
+# Natalie and Dan are friends
+Friendship.create!({user_id: 4, friend_id: 2, status: "accepted"})
+Friendship.create!({user_id: 2, friend_id: 4, status: "accepted"})
 
 # Nick sends a friend request to Natalie
 Friendship.create!({user_id: 3, friend_id: 4, status: "requesting"})
@@ -61,4 +61,12 @@ Expense.create!({lender_id: 3,
                 amount: 10.01,
                 total: 22.00,
                 description: "electricity",
+                settled: false });
+
+# Dan owes Natalie $1.50
+Expense.create!({lender_id: 4,
+                ower_id: 2,
+                amount: 1.50,
+                total: 3.00,
+                description: "marry berry's chocolate tart",
                 settled: false });
