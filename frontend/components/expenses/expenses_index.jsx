@@ -1,5 +1,6 @@
 import React from 'react';
 import ExpenseIndexItem from './expense_index_item';
+import CommentsContainer from '../comments/comments_container';
 
 class ExpensesIndex extends React.Component {
 
@@ -24,7 +25,8 @@ class ExpensesIndex extends React.Component {
                         expense={e}
                         key={i}
                         currentUser={this.props.currentUser}
-                        deleteExpense={this.props.deleteExpense} />;
+                        deleteExpense={this.props.deleteExpense}
+                        comments={e.comments} />;
             })}
           </ul>
         </section>

@@ -502,7 +502,7 @@ header {
 }
 
 .expense-index-item:hover {
-  background-color: #fafafa;
+  background-color: #f2f2f2;
   cursor: pointer;
 }
 

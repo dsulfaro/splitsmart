@@ -70,3 +70,11 @@ Expense.create!({lender_id: 4,
                 total: 3.00,
                 description: "cookies",
                 settled: false });
+
+Comment.create!({author_id: 4,
+                 expense_id: 5,
+                 body: "they were fabtastic!"})
+
+Comment.create!({author_id: 2,
+                 expense_id: 5,
+                 body: "so chocolate; much nut"})

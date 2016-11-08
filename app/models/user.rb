@@ -52,6 +52,11 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :ower_id
 
+  has_many :comments,
+    class_name: "Comment",
+    primary_key: :id,
+    foreign_key: :author_id
+
   after_initialize :ensure_session_token
 
   attr_reader :password
@@ -86,7 +91,7 @@ class User < ActiveRecord::Base
   end
 
   def all_unsettled_expenses
-    Expense.includes(:lender, :ower)
+    Expense.includes(:lender, :ower, :comments)
            .where("lender_id = #{self.id} OR ower_id = #{self.id}")
            .where("settled = false")
   end

@@ -4,8 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // FOR TESTING //
-import { addExpense } from './actions/expenses_actions';
-window.addExpense = addExpense;
+import { fetchComments } from './actions/comment_actions';
+window.fetchComments = fetchComments;
 
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -15,6 +15,12 @@ class Expense < ApplicationRecord
     primary_key: :id,
     foreign_key: :ower_id
 
+  has_many :comments,
+    inverse_of: :expense,
+    class_name: "Comment",
+    primary_key: :id,
+    foreign_key: :expense_id
+
   scope :unsettled, -> {where(settled: false)}
   scope :settled, -> {where(settled: true)}
 

@@ -9,5 +9,10 @@
     json.settled expense.settled
     json.month expense.created_at.to_formatted_s(:short).slice(3, 3)
     json.day expense.created_at.to_formatted_s(:short).slice(0, 2)
+    json.comments expense.comments.each do |comment|
+        json.author comment.user.username
+        json.body comment.body
+        json.time comment.created_at
+    end
   end
 end

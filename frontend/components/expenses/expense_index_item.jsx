@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-
+import CommentsContainer from '../comments/comments_container';
 
 class ExpenseIndexItem extends React.Component {
 
@@ -47,7 +47,7 @@ class ExpenseIndexItem extends React.Component {
   render() {
     return(
 
-      <li className="expense-index-item">
+      <li className="expense-index-item" onClick={this.props.onClickEvent}>
 
         <div className="expense-info">
           <div className="expense-date">
@@ -67,6 +67,10 @@ class ExpenseIndexItem extends React.Component {
             <h3 className="amount">${this.formatAmount(this.props.expense.amount)}</h3>
           </div>
           <button className="delete-expense" onClick={this.openDelete}>X</button>
+
+          <section className="comments">
+            <CommentsContainer comments={this.props.comments} />
+          </section>
 
           <Modal
             isOpen={this.state.isDeleteOpen}

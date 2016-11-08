@@ -7,3 +7,4 @@
 - if expense description is too long, replace with ...
 - get rid of ugly loop in finding friend name in expense_friend
 - expense reducer does the same thing for FETCH and FETCH_ALL - DRY that up
+- settle up modal -- "You owe X this much. Do you want to pay them now? || They owe you Y"
