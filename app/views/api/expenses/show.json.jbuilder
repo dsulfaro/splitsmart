@@ -1,6 +1,6 @@
 json.id @expense.id
-json.lender @expense.lender_id
-json.ower @expense.ower_id
+json.lender @expense.lender.username
+json.ower @expense.ower.username
 json.amount @expense.amount
 json.total @expense.total
 json.description @expense.description

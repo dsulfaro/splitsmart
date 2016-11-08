@@ -92,19 +92,22 @@ class User < ActiveRecord::Base
   end
 
   def owes_friend(friend_id)
-    Expense.where("lender_id = #{friend_id}")
+    Expense.includes(:lender, :ower)
+           .where("lender_id = #{friend_id}")
            .where("ower_id = #{self.id}")
            .where("settled = false")
   end
 
   def friend_owes(friend_id)
-    Expense.where("lender_id = #{self.id}")
+    Expense.includes(:lender, :ower)
+           .where("lender_id = #{self.id}")
            .where("ower_id = #{friend_id}")
            .where("settled = false")
   end
 
   def all_expenses(friend_id)
-    Expense.where("lender_id = #{self.id} AND ower_id = #{friend_id} AND settled = false")
+    Expense.includes(:lender, :ower)
+           .where("lender_id = #{self.id} AND ower_id = #{friend_id} AND settled = false")
            .or(Expense.where("lender_id = #{friend_id} AND ower_id = #{self.id} AND settled = false"))
            .order(:created_at)
   end

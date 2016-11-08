@@ -2,7 +2,8 @@ class Api::ExpensesController < ApplicationController
 
   def index
     if params[:friend_id]
-      @expenses = current_user.all_expenses(params[:friend_id])
+      @expenses = current_user.owes_friend(params[:friend_id])+
+                  current_user.friend_owes(params[:friend_id])
     else
       @expenses = current_user.all_unsettled_expenses
     end
