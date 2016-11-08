@@ -16,13 +16,13 @@ User.create!({username: "frank", password: "123456"})   # 5
 Friendship.create!({user_id: 2, friend_id: 3, status: 'accepted'})
 Friendship.create!({user_id: 3, friend_id: 2, status: 'accepted'})
 
+# Natalie and Dan are friends
+Friendship.create!({user_id: 2, friend_id: 4, status: "accepted"})
+Friendship.create!({user_id: 4, friend_id: 2, status: "accepted"})
+
 # Dan sends request to Frank
 Friendship.create!({user_id: 2, friend_id: 5, status: 'requesting'})
 Friendship.create!({user_id: 5, friend_id: 2, status: 'pending'})
-
-# Natalie and Dan are friends
-Friendship.create!({user_id: 4, friend_id: 2, status: "accepted"})
-Friendship.create!({user_id: 2, friend_id: 4, status: "accepted"})
 
 # Nick sends a friend request to Natalie
 Friendship.create!({user_id: 3, friend_id: 4, status: "requesting"})

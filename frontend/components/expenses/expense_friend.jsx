@@ -97,7 +97,7 @@ class ExpenseFriend extends React.Component {
           </div>
           <br />
           <div id="form-buttons">
-            <button id="add-expense-cancel" onClick={this.closeModal}>Cancel</button>
+            <a id="add-expense-cancel" onClick={this.closeModal}>Cancel</a>
             <button id="add-expense-submit">Submit</button>
           </div>
         </form>

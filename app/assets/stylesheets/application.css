@@ -655,6 +655,9 @@ header {
 #add-expense-cancel {
   border: 1px solid #bbb;
   color: #444;
+  padding: 5px 12px;
+  margin: 10px;
+  border-radius: 5px;
 }
 
 #add-expense-cancel:hover {
