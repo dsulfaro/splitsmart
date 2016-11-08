@@ -64,7 +64,7 @@ class ExpenseFriend extends React.Component {
   }
 
   settleUp() {
-    this.props.expenses.forEach( e => this.props.deleteExpense(e));
+    this.props.expenses.forEach( e => this.props.deleteExpense(e.id));
   }
 
   modal() {
@@ -127,7 +127,8 @@ class ExpenseFriend extends React.Component {
                 expense={e}
                 key={i}
                 currentUser={this.props.currentUser}
-                deleteExpense={this.props.deleteExpense} />;
+                deleteExpense={this.props.deleteExpense}
+                comments={e.comments} />;
             })}
           </ul>
 

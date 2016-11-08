@@ -12,7 +12,7 @@
     json.comments expense.comments.each do |comment|
         json.author comment.user.username
         json.body comment.body
-        json.time comment.created_at
+        json.time comment.created_at.to_formatted_s(:short)
     end
   end
 end

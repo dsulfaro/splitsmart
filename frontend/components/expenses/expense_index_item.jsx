@@ -10,6 +10,7 @@ class ExpenseIndexItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.openDelete = this.openDelete.bind(this);
     this.closeDelete = this.closeDelete.bind(this);
+    this.truncateDescription = this.truncateDescription.bind(this);
   }
 
   openDelete() {
@@ -38,6 +39,15 @@ class ExpenseIndexItem extends React.Component {
     }
   }
 
+  truncateDescription() {
+    if (this.props.expense.description.length > 24){
+      return this.props.expense.description.slice(0, 24) + "...";
+    }
+    else {
+      return this.props.expense.description
+    }
+  }
+
   handleDelete(e){
     e.preventDefault();
     this.props.deleteExpense(this.props.expense.id);
@@ -46,36 +56,32 @@ class ExpenseIndexItem extends React.Component {
 
   render() {
     return(
+      <div>
+        <li className="expense-index-item" onClick={this.props.onCommentsToggle}>
 
-      <li className="expense-index-item" onClick={this.props.onClickEvent}>
-
-        <div className="expense-info">
-          <div className="expense-date">
-            <h3 className="expense-date-month">{this.props.expense.month}</h3>
-            <h3 className="expense-date-day">{this.props.expense.day}</h3>
+          <div className="expense-info">
+            <div className="expense-date">
+              <h3 className="expense-date-month">{this.props.expense.month}</h3>
+              <h3 className="expense-date-day">{this.props.expense.day}</h3>
+            </div>
+            <h3 className="expense-description">{this.truncateDescription()}</h3>
           </div>
-          <h3 className="expense-description">{this.props.expense.description}</h3>
-        </div>
 
-        <div className="expense-payments">
-          <div className="paid">
-            <h3 className="lender">{this.props.expense.lender === this.props.currentUser.username ? "you" : this.props.expense.lender} paid</h3>
-            <h3 className="total">${this.formatAmount(this.props.expense.total)}</h3>
-          </div>
-          <div className="due">
-            <h3 className="ower">{this.props.expense.ower === this.props.currentUser.username ? "you owe" : this.props.expense.ower + " owes"}</h3>
-            <h3 className="amount">${this.formatAmount(this.props.expense.amount)}</h3>
-          </div>
-          <button className="delete-expense" onClick={this.openDelete}>X</button>
-
-          <section className="comments">
-            <CommentsContainer comments={this.props.comments} />
-          </section>
-
-          <Modal
-            isOpen={this.state.isDeleteOpen}
-            onRequestClose={this.closeDelete}
-            className="delete-modal">
+          <div className="expense-payments">
+            <div className="paid">
+              <h3 className="lender">{this.props.expense.lender === this.props.currentUser.username ? "you" : this.props.expense.lender} paid</h3>
+              <h3 className="total">${this.formatAmount(this.props.expense.total)}</h3>
+            </div>
+            <div className="due">
+              <h3 className="ower">{this.props.expense.ower === this.props.currentUser.username ? "you owe" : this.props.expense.ower + " owes"}</h3>
+              <h3 className="amount">${this.formatAmount(this.props.expense.amount)}</h3>
+            </div>
+            <button className="delete-expense" onClick={this.openDelete}>X</button>
+            <br />
+            <Modal
+              isOpen={this.state.isDeleteOpen}
+              onRequestClose={this.closeDelete}
+              className="delete-modal">
               <header>
                 <h2>Delete this expense?</h2>
               </header>
@@ -83,9 +89,15 @@ class ExpenseIndexItem extends React.Component {
                 <button id="x" onClick={this.handleDelete}>Yes</button>
                 <button id="y" onClick={this.closeDelete}>No</button>
               </div>
-          </Modal>
+            </Modal>
+
+            </div>
+
+          </li>
+          <section className="expense-index-item-comments">
+            <CommentsContainer comments={this.props.comments} />
+          </section>
         </div>
-      </li>
     );
   }
 }

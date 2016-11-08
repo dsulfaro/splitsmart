@@ -12,6 +12,10 @@ class ExpensesIndex extends React.Component {
     this.props.fetchAllExpenses();
   }
 
+  commentsToggle() {
+    console.log("hellur");
+  }
+
   render () {
     if (this.props.currentUser && this.props.expenses[0]){
       return (
@@ -26,7 +30,8 @@ class ExpensesIndex extends React.Component {
                         key={i}
                         currentUser={this.props.currentUser}
                         deleteExpense={this.props.deleteExpense}
-                        comments={e.comments} />;
+                        comments={e.comments}
+                        onCommentsToggle={() => this.commentsToggle()} />;
             })}
           </ul>
         </section>

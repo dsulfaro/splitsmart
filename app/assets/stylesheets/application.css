@@ -427,16 +427,8 @@ header {
   box-shadow: 2px 2px black;
 }
 
-#x{
-  background-color: #5bc5a7;
-}
-
 #y{
   background-color: #ff652f;
-}
-
-#x:hover{
-  background-color: #4ca58c;
 }
 
 #y:hover{
@@ -535,7 +527,7 @@ header {
 .expense-payments {
   display: flex;
   justify-content: space-between;
-  width: 145px;
+  width: 230px;
 }
 
 .paid {
@@ -546,6 +538,7 @@ header {
 .lender {
   font-size: 12px;
   color: #999;
+  width: 100px;
 }
 
 .total {
@@ -560,6 +553,7 @@ header {
 .ower {
   font-size: 12px;
   color: #999;
+  width: 100px;
 }
 
 .amount {
@@ -571,6 +565,65 @@ header {
   color: red;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* ----------------------------------------------------------------- */
+/* ---------- Expense Comments ------------------------------------- */
+/* ----------------------------------------------------------------- */
+.expense-index-item-comments {
+  /*background-color: #b9e5d9;*/
+  background-color: #f1f1f1;
+}
+
+.comments-list {
+  list-style: none;
+}
+
+.comments-title {
+  padding: 5px;
+  padding-left: 5px;
+  color: #333;
+  font-size: 13px;
+  border-bottom: 1px solid #999;
+}
+
+.comment {
+  padding: 5px 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted #888;
+  color: #444;
+}
+
+#bo {
+  font-weight: bold;
+}
+
+.add-comment-div {
+  padding: 5px 10px;
+}
+
+.add-comment-button {
+  font-size: 10px;
+  background-color: #55996e;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.add-comment-button:hover{
+  background-color: #427a56;
+}
+
+.add-comment-input {
+  background-color: white;
+  border: 1px solid #888;
+  border-radius: 3px;
+  width: 75%;
+  padding: 5px;
+  font-size: 10px
 }
 
 /* ----------------------------------------------------------------- */
@@ -685,7 +738,7 @@ footer {
   background-color: #666;
   color: white;
   padding: 20px;
-  position: fixed;
-  bottom: 0;
+  position: static;
+  margin-bottom: 0px;
   border-top: 2px solid #aaa;
 }
