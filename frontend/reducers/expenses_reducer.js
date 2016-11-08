@@ -18,8 +18,12 @@ const ExpenseReducer = (state = {}, action) => {
       newState = merge({}, state, {[action.expense.id]: action.expense});
       return newState;
     case GET_DELETED:
-      newState = merge({}, state);
-      delete newState[action.id];
+      newState = values(merge({}, state));
+      for (let i = 0; i < newState.length; i++){
+        if (newState[i].id === action.expense.id){
+          newState = newState.slice(0, i).concat(newState.slice(i + 1));
+        }
+      }
       return newState;
     default:
       return state;
