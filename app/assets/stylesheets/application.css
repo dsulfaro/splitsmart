@@ -462,8 +462,24 @@ header {
   padding: 10px;
 }
 
+.settle-up{
+  text-shadow: 0 -1px 0 #318970;
+  border: 1px solid #4ca58c;
+  box-shadow: 1px 1px #4ca58c;
+  color: white;
+  margin-right: 18px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background-color: #5bc5a7;
+}
+
+.settle-up:hover {
+  background-color: #4ca58c;
+}
+
 .expenses-feed {
   font-size: 22px;
+  padding: 5px;
 }
 
 .add-bill {

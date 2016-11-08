@@ -17,7 +17,6 @@ class ExpensesIndex extends React.Component {
         <section className="expenses-main">
           <nav className="expenses-nav">
             <h2 className="expenses-feed">Expenses Feed</h2>
-            <button className="add-bill">Add Bill</button>
           </nav>
           <ul className="expenses-list">
             {this.props.expenses.map( (e, i) => {
