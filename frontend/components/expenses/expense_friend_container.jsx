@@ -1,14 +1,22 @@
 import { connect } from 'react-redux';
 import ExpenseFriend from './expense_friend';
-import { fetchExpenses } from '../../actions/expenses_actions';
+import { fetchExpenses, addExpense, deleteExpense } from '../../actions/expenses_actions';
+import { selectExpenses } from '../../reducers/selectors';
+import { hashHistory } from 'react-router';
 
-const mapStateToProps = store => ({
-  expenses: store.expenses,
-  currentUser: store.session.currentUser
-});
+const mapStateToProps = store => {
+
+  return ({
+    expenses: selectExpenses(store.expenses),
+    currentUser: store.session.currentUser,
+    friends: store.friends.friends
+  });
+};
 
 const mapDispatchToProps = dispatch => ({
-  fetchExpenses: id => dispatch(fetchExpenses(id))
+  fetchExpenses: id => dispatch(fetchExpenses(id)),
+  addExpense: expense => dispatch(addExpense(expense)),
+  deleteExpense: expense => dispatch(deleteExpense(expense))
 });
 
 export default connect(

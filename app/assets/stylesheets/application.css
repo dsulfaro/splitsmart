@@ -36,10 +36,11 @@
  /* ---------- Navbar ----------------------------------------------- */
  /* ----------------------------------------------------------------- */
 header {
- background-color: #5bc5a7;
- color: white;
- box-shadow: 0 1px 0 #ccc;
- width: 100%;
+  background-color: #5bc5a7;
+  color: white;
+  box-shadow: 0 1px 0 #ccc;
+  width: 100%;
+  top: 0;
 }
 
 .main-nav {
@@ -213,7 +214,7 @@ header {
 /* ----------------------------------------------------------------- */
 .splash-section {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 200px;
 }
 
 .tagline {
@@ -251,10 +252,8 @@ header {
 /* ---------- Dashboard -------------------------------------------- */
 /* ----------------------------------------------------------------- */
 #dashboard {
-  height: 110%;
   width: 800px;
   margin: auto;
-  margin-bottom: 15px;
   display: flex;
 }
 
@@ -387,6 +386,63 @@ header {
   color: white;
 }
 
+.delete-modal {
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
+  height: 100px;
+  width: 310px;
+  background-color: white;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+
+}
+
+.delete-modal > header {
+  font-size: 24px;
+  text-align: center;
+  padding: 5px;
+  width: 300px;
+}
+
+.delete-choices {
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-choices > button {
+  padding: 5px 10px;
+  border: 1px solid #999;
+  margin-top: 15px;
+  font-size: 20px;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 2px 2px black;
+}
+
+#x{
+  background-color: #5bc5a7;
+}
+
+#y{
+  background-color: #ff652f;
+}
+
+#x:hover{
+  background-color: #4ca58c;
+}
+
+#y:hover{
+  background-color: #c83400;
+}
+
 /* ----------------------------------------------------------------- */
 /* ---------- Expenses --------------------------------------------- */
 /* ----------------------------------------------------------------- */
@@ -456,6 +512,8 @@ header {
   margin-top: 6px;
   margin-left: 10px;
   font-weight: bold;
+  width: 210px;
+  height: 20px;
 }
 
 .expense-payments {
@@ -492,6 +550,114 @@ header {
   font-size: 15px;
   font-weight: bold;
 }
+
+.delete-expense {
+  color: red;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ----------------------------------------------------------------- */
+/* ---------- Add Expense Modal ------------------------------------ */
+/* ----------------------------------------------------------------- */
+.add-expense-modal {
+  position: relative;
+  background-color: white;
+  width: 400px;
+  height: 220px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 100px;
+
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.modal-header {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 380px;
+  text-shadow: 0 -1px 0 #318970;
+}
+
+.modal-header > button:hover {
+  cursor: pointer;
+}
+
+.add-expense-form {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#between {
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+#add-bill-form-desc {
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  padding: 5px;
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+  font-size: 14px;
+}
+
+#text-inputs {
+  display: inline;
+  width: 100%;
+  margin-left: 40px;
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
+}
+
+#text-inputs > input {
+  width: 52px;
+  padding: 5px;
+}
+
+#form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+#form-buttons > button {
+  padding: 5px 12px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#add-expense-cancel {
+  border: 1px solid #bbb;
+  color: #444;
+}
+
+#add-expense-cancel:hover {
+  background-color: #ddd;
+}
+
+#add-expense-submit {
+  text-shadow: 0 -1px 0 #318970;
+  background-color: #5bc5a7;
+  border: 1px solid #4ca58c;
+  color: white;
+}
+
+#add-expense-submit:hover {
+  background-color: #4ca58c;
+  border: 1px solid #4ca58c;
+}
+
+
 /* ----------------------------------------------------------------- */
 /* ---------- Footer ----------------------------------------------- */
 /* ----------------------------------------------------------------- */
@@ -500,7 +666,7 @@ footer {
   background-color: #666;
   color: white;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   border-top: 2px solid #aaa;
 }

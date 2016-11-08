@@ -10,7 +10,9 @@ class Api::ExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expense_params)
-    if @expense.save
+    @expense.settled = false;
+    if @expense.valid?
+      @expense.save
       render 'api/expenses/show'
     else
       render json: @expense.errors.full_messages
@@ -22,11 +24,17 @@ class Api::ExpensesController < ApplicationController
   end
 
   def destroy
-
+    @expense = Expense.find_by_id(params[:expense_id])
+    if @expense
+      @expense.destroy
+      render 'api/expenses/show'
+    else
+      render json: ["expense not found"]
+    end
   end
 
   private
   def expense_params
-    params.require(:expense).permit(:lender_id)
+    params.require(:expense).permit(:lender_id, :ower_id, :amount, :total, :description)
   end
 end

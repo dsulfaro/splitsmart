@@ -1,4 +1,5 @@
 json.expenses @expenses do |expense|
+  json.id expense.id
   json.lender expense.lender.username
   json.ower expense.ower.username
   json.amount expense.amount

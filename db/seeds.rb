@@ -68,5 +68,5 @@ Expense.create!({lender_id: 4,
                 ower_id: 2,
                 amount: 1.50,
                 total: 3.00,
-                description: "marry berry's chocolate tart",
+                description: "cookies",
                 settled: false });

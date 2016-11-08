@@ -5,3 +5,5 @@
 - user search - NO USERS FOUND if no users found
 - add arrow key functionality to User Search
 - if expense description is too long, replace with ...
+- get rid of ugly loop in finding friend name in expense_friend
+- expense reducer does the same thing for FETCH and FETCH_ALL - DRY that up
