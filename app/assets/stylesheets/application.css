@@ -427,11 +427,11 @@ header {
   box-shadow: 2px 2px black;
 }
 
-#y{
+.y{
   background-color: #ff652f;
 }
 
-#y:hover{
+.y:hover{
   background-color: #c83400;
 }
 
@@ -632,7 +632,7 @@ header {
 .add-expense-modal {
   position: relative;
   background-color: white;
-  width: 400px;
+  width: 450px;
   height: 220px;
   border: 1px solid #bbb;
   border-radius: 5px;
@@ -652,7 +652,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  width: 380px;
+  width: 430px;
   text-shadow: 0 -1px 0 #318970;
 }
 
@@ -675,7 +675,7 @@ header {
   border-bottom: 1px solid #ddd;
   font-size: 16px;
   padding: 5px;
-  width: 100%;
+  width: 98%;
   margin: 10px 0px 10px 0px;
   font-size: 14px;
 }
@@ -729,6 +729,10 @@ header {
   border: 1px solid #4ca58c;
 }
 
+#x {
+  bac
+}
+
 
 /* ----------------------------------------------------------------- */
 /* ---------- Footer ----------------------------------------------- */
@@ -738,7 +742,7 @@ footer {
   background-color: #666;
   color: white;
   padding: 20px;
-  position: static;
-  margin-bottom: 0px;
+  position: fixed;
+  bottom: 0;
   border-top: 2px solid #aaa;
 }

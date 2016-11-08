@@ -86,8 +86,8 @@ class ExpenseIndexItem extends React.Component {
                 <h2>Delete this expense?</h2>
               </header>
               <div className="delete-choices">
-                <button id="x" onClick={this.handleDelete}>Yes</button>
-                <button id="y" onClick={this.closeDelete}>No</button>
+                <button className="y" onClick={this.handleDelete}>Yes</button>
+                <button className="y" onClick={this.closeDelete}>No</button>
               </div>
             </Modal>
 
