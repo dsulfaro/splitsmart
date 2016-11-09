@@ -9,7 +9,7 @@ class Comments extends React.Component {
 
   submitComment(e) {
     let comment = {body: $(e.currentTarget).next().val(),
-                   author_id: currentUser.id,
+                   author_id: this.props.currentUser.id,
                    expense_id: this.props.expenseId}
     $(e.currentTarget).next().val("");
     this.props.addComment(comment);
