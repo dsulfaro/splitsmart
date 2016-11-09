@@ -20,6 +20,27 @@ User.create!({username: "magneto", password: "123456"}) # 11
 User.create!({username: "ursula", password: "123456"}) # 12
 User.create!({username: "the_first", password: "123456"}) # 13
 User.create!({username: "t_1000", password: "123456"}) # 14
+User.create!({username: "HquinXOXO", password: "123456"}) # 15
+User.create!({username: "loki", password: "123456"}) # 16
+User.create!({username: "freddyK", password: "12346"}) # 17
+User.create!({username: "medusa", password: "123456"}) # 18
+User.create!({username: "babad00k", password: "123456"}) # 19
+User.create!({username: "inner_demons", password: "123456"}) # 20
+User.create!({username: "glory", password: "123456"}) # 21
+User.create!({username: "angelus", password: "123456"}) # 22
+User.create!({username: "bowser", password: "123456"}) # 23
+User.create!({username: "ganon", password: "123456"}) # 24
+User.create!({username: "gladOs", password: "123456"}) # 25
+User.create!({username: "cptnHook", password: "123456"}) # 26
+User.create!({username: "cruella", password: "123456"}) # 27
+User.create!({username: "hades", password: "123456"}) # 28
+User.create!({username: "JAFAR", password: "123456"}) # 29
+User.create!({username: "MALEFICENT", password: "123456"}) # 30
+User.create!({username: "TEAM_ROCKET", password: "123456"}) # 31
+User.create!({username: "jawSZ", password: "123456"}) # 32
+User.create!({username: "dirty_bubble", password: "123456"}) # 33
+User.create!({username: "MANRAY", password: "123456"}) # 34
+User.create!({username: "ONLY_ZuUl", password: "123456"}) # 35
 
 
 # guest is friends with the first 5 people
@@ -59,7 +80,7 @@ Expense.create!({lender_id: 2,
                 ower_id: 1,
                 amount: 5.00,
                 total: 10.00,
-                description: "lightsabor decals",
+                description: "sweet lightsaber decals",
                 settled: false });
 
 Expense.create!({lender_id: 2,
@@ -73,7 +94,7 @@ Expense.create!({lender_id: 2,
                 ower_id: 1,
                 amount: 2.00,
                 total: 4.00,
-                description: "uber",
+                description: "cross galaxy uber",
                 settled: false });
 
 Expense.create!({lender_id: 1,
@@ -95,6 +116,34 @@ Expense.create!({lender_id: 4,
                 amount: 11.00,
                 total: 22.99,
                 description: "dinner",
+                settled: false });
+
+Expense.create!({lender_id: 1,
+                ower_id: 5,
+                amount: 50.00,
+                total: 100.00,
+                description: "electric bill",
+                settled: false });
+
+Expense.create!({lender_id: 1,
+                ower_id: 5,
+                amount: 50.00,
+                total: 100.00,
+                description: "LOTZ OF BUTTER BEEEEERRR",
+                settled: false });
+
+Expense.create!({lender_id: 1,
+                ower_id: 5,
+                amount: 20.00,
+                total: 40.00,
+                description: "a flavorless steak",
+                settled: false });
+
+Expense.create!({lender_id: 1,
+                ower_id: 5,
+                amount: 1.00,
+                total: 4.00,
+                description: "earl's stapler",
                 settled: false });
 
 
