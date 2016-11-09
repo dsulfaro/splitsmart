@@ -22,7 +22,7 @@ User.create!({username: "the_first", password: "123456"}) # 13
 User.create!({username: "t_1000", password: "123456"}) # 14
 User.create!({username: "HquinXOXO", password: "123456"}) # 15
 User.create!({username: "loki", password: "123456"}) # 16
-User.create!({username: "freddyK", password: "12346"}) # 17
+User.create!({username: "freddyK", password: "123456"}) # 17
 User.create!({username: "medusa", password: "123456"}) # 18
 User.create!({username: "babad00k", password: "123456"}) # 19
 User.create!({username: "inner_demons", password: "123456"}) # 20
