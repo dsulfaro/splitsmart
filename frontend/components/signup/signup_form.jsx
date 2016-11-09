@@ -63,7 +63,7 @@ class SignupForm extends React.Component {
                  onChange={this.update("password")}
                  id="signup-form-password" />
           <input type="submit"
-                 value="Sign in to SplitSmart"
+                 value="Sign Up"
                  onClick={this.handleSignupSubmit}
                  id="signup-form-submit"/>
                {this.printErrors()}

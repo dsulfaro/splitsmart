@@ -37,7 +37,8 @@ class ExpensesIndex extends React.Component {
                         currentUser={this.props.currentUser}
                         deleteExpense={this.props.deleteExpense}
                         comments={e.comments}
-                        onCommentsToggle={(e) => this.commentsToggle(e)} />;
+                        onCommentsToggle={(e) => this.commentsToggle(e)}
+                        onDash={true} />;
             })}
           </ul>
         </section>

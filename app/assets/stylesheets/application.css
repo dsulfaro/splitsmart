@@ -308,6 +308,7 @@ header {
 
 .frand > li:hover {
   background-color: #f4f4f4;
+  cursor: pointer;
 }
 
 #accept-friend {
@@ -374,7 +375,7 @@ header {
 
 #filtered-users-list > li {
   padding: 5px;
-  transition: all .07s ease-in;
+  transition: all .05s ease-in;
 }
 
 #filtered-users-list > li:hover {
@@ -443,7 +444,7 @@ header {
 /* ---------- Expenses --------------------------------------------- */
 /* ----------------------------------------------------------------- */
 .expenses-main {
-  width: 500px;
+  width: 600px;
   margin: 0px 30px;
   height: 100%;
   box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.1), -12px 0 8px -4px rgba(0, 0, 0, 0.1);
@@ -518,6 +519,7 @@ header {
 
 .expense-info {
   display: flex;
+  width: 50%;
 }
 
 .expense-description {
@@ -532,7 +534,7 @@ header {
 .expense-payments {
   display: flex;
   justify-content: space-between;
-  width: 230px;
+  width: 50%;
 }
 
 .paid {
@@ -543,7 +545,7 @@ header {
 .lender {
   font-size: 12px;
   color: #999;
-  width: 100px;
+  width: 120px;
 }
 
 .total {
@@ -567,9 +569,32 @@ header {
 }
 
 .delete-expense {
+  margin-top: 7px;
+  height: 20px;
   color: red;
   border-radius: 5px;
+  padding: 0px 5px;
+}
+
+.delete-expense:hover {
   cursor: pointer;
+  background-color: red;
+  color: white;
+}
+
+.dollar {
+  text-align: center;
+  padding: -1px -1px;
+  width: 80px;
+  color: white;
+  font-size: 12px;
+  background-color: #55996e;
+  margin-right: 10px;
+}
+
+.dollar:hover {
+  cursor: pointer;
+  background-color: #44774c;
 }
 
 /* ----------------------------------------------------------------- */

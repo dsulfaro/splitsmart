@@ -20,6 +20,7 @@ class ExpenseFriend extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.settleUp = this.settleUp.bind(this);
     this.calcBalance = this.calcBalance.bind(this);
+    this.commentsToggle = this.commentsToggle.bind(this);
   }
 
   findFriend(id) {
@@ -65,7 +66,6 @@ class ExpenseFriend extends React.Component {
         total -= e.amount;
       }
     });
-    console.log(total);
     return total;
   }
 
@@ -87,6 +87,10 @@ class ExpenseFriend extends React.Component {
 
   settleUp() {
     this.props.expenses.forEach( e => this.props.deleteExpense(e.id));
+  }
+
+  commentsToggle(e) {
+    $(e.currentTarget).next().toggleClass("show-comments");
   }
 
   modal() {
@@ -150,7 +154,8 @@ class ExpenseFriend extends React.Component {
                 key={i}
                 currentUser={this.props.currentUser}
                 deleteExpense={this.props.deleteExpense}
-                comments={e.comments} />;
+                onCommentsToggle={(e) => this.commentsToggle(e)}
+                comments={ e.comments } />;
             })}
           </ul>
 

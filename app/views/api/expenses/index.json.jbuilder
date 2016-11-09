@@ -3,6 +3,8 @@
     json.id expense.id
     json.lender expense.lender.username
     json.ower expense.ower.username
+    json.friend_id expense.lender_id if expense.lender_id != current_user.id
+    json.friend_id expense.ower_id if expense.ower_id != current_user.id
     json.amount expense.amount
     json.total expense.total
     json.description expense.description

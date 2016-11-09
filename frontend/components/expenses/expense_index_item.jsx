@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import CommentsContainer from '../comments/comments_container';
+import { hashHistory } from 'react-router';
 
 class ExpenseIndexItem extends React.Component {
 
@@ -11,6 +12,7 @@ class ExpenseIndexItem extends React.Component {
     this.openDelete = this.openDelete.bind(this);
     this.closeDelete = this.closeDelete.bind(this);
     this.truncateDescription = this.truncateDescription.bind(this);
+    this.reroute = this.reroute.bind(this);
   }
 
   openDelete() {
@@ -54,6 +56,28 @@ class ExpenseIndexItem extends React.Component {
     this.closeDelete();
   }
 
+  reroute() {
+    if (this.props.onDash) {
+      hashHistory.push(`/friends/${this.props.expense.friend_id}`);
+    }
+    else {
+      hashHistory.push('/dashboard')
+    }
+  }
+
+  settleButton() {
+    if (this.props.onDash) {
+      return (
+        <button className="delete-expense dollar" onClick={this.reroute}>Settle</button>
+      )
+    }
+    else {
+      return (
+        <button className="delete-expense dollar" onClick={this.reroute}>Dash</button>
+      )
+    }
+  }
+
   render() {
     return(
       <div>
@@ -76,8 +100,10 @@ class ExpenseIndexItem extends React.Component {
               <h3 className="ower">{this.props.expense.ower === this.props.currentUser.username ? "you owe" : this.props.expense.ower + " owes"}</h3>
               <h3 className="amount">${this.formatAmount(this.props.expense.amount)}</h3>
             </div>
+            {this.settleButton()}
             <button className="delete-expense" onClick={this.openDelete}>X</button>
             <br />
+
             <Modal
               isOpen={this.state.isDeleteOpen}
               onRequestClose={this.closeDelete}
