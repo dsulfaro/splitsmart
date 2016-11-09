@@ -6,6 +6,16 @@ import {
 } from '../util/expenses_api_util';
 
 import {
+  addCommentUtil
+} from '../util/comments_api_util';
+
+import {
+  ADD_COMMENT,
+  addComment,
+  receiveComment
+} from '../actions/comment_actions';
+
+import {
   FETCH_ALL_EXPENSES,
   receiveAllExpenses,
   FETCH_EXPENSES,
@@ -25,6 +35,7 @@ export default ({ getState, dispatch }) => next => action => {
   const fetchExpensesSuccess = expenses => dispatch(receiveExpenses(expenses));
   const addExpenseSuccess = expense => dispatch(receiveNewExpense(expense));
   const deleteExpenseSuccess = expense => dispatch(getDeleted(expense));
+  const addCommentSuccess = comment => dispatch(receiveComment(comment));
   const error = err => console.log(`error-in-middleware: ${err}`);
 
   switch (action.type) {
@@ -39,6 +50,9 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case DELETE_EXPENSE:
       deleteExpenseUtil(deleteExpenseSuccess, action.id, error);
+      return next(action);
+    case ADD_COMMENT:
+      addCommentUtil(addCommentSuccess, action.comment, error)
       return next(action);
     default:
       return next(action);

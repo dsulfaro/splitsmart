@@ -50,7 +50,8 @@ class UserSearch extends React.Component {
         <input type="text"
           id="user-search-input"
           value={this.state.search}
-          onChange={this.update()} />
+          onChange={this.update()}
+          placeholder="...here" />
         <section id="filtered-users">
           <ul id="filtered-users-list">
             {this.matchUsers()}

@@ -4,6 +4,15 @@ class Comments extends React.Component {
 
   constructor() {
     super();
+    this.submitComment = this.submitComment.bind(this);
+  }
+
+  submitComment(e) {
+    let comment = {body: $(e.currentTarget).next().val(),
+                   author_id: currentUser.id,
+                   expense_id: this.props.expenseId}
+    $(e.currentTarget).next().val("");
+    this.props.addComment(comment);
   }
 
   render () {
@@ -19,7 +28,9 @@ class Comments extends React.Component {
               </li>
             })}
             <div className="add-comment-div">
-              <button className="add-comment-button">Add Comment</button>
+              <button className="add-comment-button"
+                      onClick={ (e) => this.submitComment(e)}>Add Comment
+              </button>
               <input type="text" className="add-comment-input"/>
             </div>
           </ul>
@@ -29,7 +40,9 @@ class Comments extends React.Component {
     else {
       return (
         <div className="add-comment-div">
-          <button className="add-comment-button">Add Comment</button>
+          <button className="add-comment-button"
+                  onClick={ (e) => this.submitComment(e)}>Add Comment
+          </button>
           <input type="text" className="add-comment-input"/>
         </div>
       )

@@ -7,8 +7,7 @@ import CommentMiddleware from './comments_middleware';
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
   FriendMiddleware,
-  ExpenseMiddleware,
-  CommentMiddleware
+  ExpenseMiddleware
 );
 
 export default RootMiddleware;

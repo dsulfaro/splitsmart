@@ -6,7 +6,12 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-
+    @comment = Comment.create(comment_params)
+    if @comment.save
+      render 'api/comments/show'
+    else
+      render json: ["invalid comment params"], status: 422
+    end
   end
 
   def destroy

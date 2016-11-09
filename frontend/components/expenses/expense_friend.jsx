@@ -12,12 +12,14 @@ class ExpenseFriend extends React.Component {
                    lender_id: "",
                    ower_id: "",
                    description: "",
-                   settled: false};
+                   settled: false,
+                   balance: 0};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.settleUp = this.settleUp.bind(this);
+    this.calcBalance = this.calcBalance.bind(this);
   }
 
   findFriend(id) {
@@ -49,6 +51,26 @@ class ExpenseFriend extends React.Component {
 
   componentWillMount() {
     Modal.setAppElement('body');
+  }
+
+  calcBalance() {
+
+    /////// TODOOOOOOOOOOO ///////////
+    let total = 0;
+    this.props.expenses.forEach( e => {
+      if (e.ower_id === this.props.currentUser.id){
+        total += e.amount;
+      }
+      else {
+        total -= e.amount;
+      }
+    });
+    console.log(total);
+    return total;
+  }
+
+  componentDidUpdate() {
+    $("#balance").text(this.calcBalance());
   }
 
   handleSubmit(e) {

@@ -95,7 +95,8 @@ class ExpenseIndexItem extends React.Component {
 
           </li>
           <section className="expense-index-item-comments">
-            <CommentsContainer comments={this.props.comments} />
+            <CommentsContainer comments={this.props.comments}
+                               expenseId={this.props.expense.id}/>
           </section>
         </div>
     );

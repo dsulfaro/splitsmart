@@ -1,13 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchComments } from '../../actions/comment_actions';
+import { fetchComments, addComment } from '../../actions/comment_actions';
 import Comments from './comments';
 
-const mapStateToProps = store => ({
-  comments: store.comments
-});
-
 const mapDispatchToProps = dispatch => ({
-
+  addComment: comment => dispatch(addComment(comment))
 })
 
-export default connect(null)(Comments);
+export default connect(null, mapDispatchToProps)(Comments);

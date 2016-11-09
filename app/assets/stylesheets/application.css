@@ -32,6 +32,9 @@
      font-family: 'Lato', sans-serif;
  }
 
+body{
+  margin-bottom: 60px;
+}
  /* ----------------------------------------------------------------- */
  /* ---------- Navbar ----------------------------------------------- */
  /* ----------------------------------------------------------------- */
@@ -354,6 +357,7 @@ header {
   border-bottom: 1px solid #e5e5e5;
   width: 96.7%;
   height: 75%;
+  font-size: 12px;
 }
 
 #user-search-input:focus {
@@ -522,6 +526,7 @@ header {
   font-weight: bold;
   width: 210px;
   height: 20px;
+  font-size: 14px;
 }
 
 .expense-payments {
@@ -571,8 +576,12 @@ header {
 /* ---------- Expense Comments ------------------------------------- */
 /* ----------------------------------------------------------------- */
 .expense-index-item-comments {
-  /*background-color: #b9e5d9;*/
   background-color: #f1f1f1;
+  display: none;
+}
+
+.show-comments {
+  display: block;
 }
 
 .comments-list {
@@ -727,10 +736,6 @@ header {
 #add-expense-submit:hover {
   background-color: #4ca58c;
   border: 1px solid #4ca58c;
-}
-
-#x {
-  bac
 }
 
 

@@ -2,6 +2,7 @@ import { RECEIVE_ALL_EXPENSES,
          RECEIVE_EXPENSES,
          RECEIVE_NEW_EXPENSE,
          GET_DELETED } from '../actions/expenses_actions';
+import { RECEIVE_COMMENT } from '../actions/comment_actions';
 import merge from 'lodash/merge';
 import { values } from 'lodash';
 
@@ -22,6 +23,15 @@ const ExpenseReducer = (state = {}, action) => {
       for (let i = 0; i < newState.length; i++){
         if (newState[i].id === action.expense.id){
           newState = newState.slice(0, i).concat(newState.slice(i + 1));
+        }
+      }
+      return newState;
+    case RECEIVE_COMMENT:
+      newState = values(merge({}, state));
+      for (let i = 0; i < newState.length; ++i) {
+        if (newState[i].id === action.comment.expense_id) {
+          newState[i].comments.push(action.comment);
+          break;
         }
       }
       return newState;

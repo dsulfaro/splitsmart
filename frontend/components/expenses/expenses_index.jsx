@@ -12,17 +12,23 @@ class ExpensesIndex extends React.Component {
     this.props.fetchAllExpenses();
   }
 
-  commentsToggle() {
-    console.log("hellur");
+  commentsToggle(e) {
+    $(e.currentTarget).next().toggleClass("show-comments");
+  }
+
+  renderNav() {
+    return (
+      <nav className="expenses-nav">
+        <h2 className="expenses-feed">Your Expenses</h2>
+      </nav>
+    )
   }
 
   render () {
     if (this.props.currentUser && this.props.expenses[0]){
       return (
         <section className="expenses-main">
-          <nav className="expenses-nav">
-            <h2 className="expenses-feed">Expenses Feed</h2>
-          </nav>
+          {this.renderNav()}
           <ul className="expenses-list">
             {this.props.expenses.map( (e, i) => {
               return <ExpenseIndexItem
@@ -31,14 +37,18 @@ class ExpensesIndex extends React.Component {
                         currentUser={this.props.currentUser}
                         deleteExpense={this.props.deleteExpense}
                         comments={e.comments}
-                        onCommentsToggle={() => this.commentsToggle()} />;
+                        onCommentsToggle={(e) => this.commentsToggle(e)} />;
             })}
           </ul>
         </section>
       );
     }
     else {
-      return (<h3>All Settled Up</h3>);
+      return (
+        <section className="expenses-main">
+          {this.renderNav()}
+        </section>
+      )
     }
   }
 }

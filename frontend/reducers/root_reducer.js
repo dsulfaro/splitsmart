@@ -8,8 +8,7 @@ import CommentReducer from './comment_reducer';
 const RootReducer = combineReducers({
   session: SessionReducer,
   friends: FriendReducer,
-  expenses: ExpenseReducer,
-  comments: CommentReducer
+  expenses: ExpenseReducer
 });
 
 export default RootReducer;

@@ -6,3 +6,13 @@ export const fetchCommentsUtil = (success, expense_id, error) => {
     error
   })
 }
+
+export const addCommentUtil = (success, comment, error) => {
+  $.ajax({
+    method: 'POST',
+    url: `api/expenses/${comment.expense_id}/comments`,
+    data: { comment },
+    success,
+    error
+  })
+}
