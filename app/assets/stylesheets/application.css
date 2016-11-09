@@ -777,6 +777,29 @@ header {
   border: 1px solid #4ca58c;
 }
 
+/* ----------------------------------------------------------------- */
+/* ---------- Balance ---------------------------------------------- */
+/* ----------------------------------------------------------------- */
+#balance-pane {
+  height: 100px;
+  margin-top: 20px;
+  box-shadow: 12px 12px 15px -4px rgba(0, 0, 0, 0.1), -12px 12px 8px -4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#balance-title {
+  padding: 8px;
+  background-color: #5bc5a7;
+  color: white;
+}
+
+#balance {
+  font-size: 18px;
+  margin-top: 20px;
+  width: 210px;
+}
 
 /* ----------------------------------------------------------------- */
 /* ---------- Footer ----------------------------------------------- */

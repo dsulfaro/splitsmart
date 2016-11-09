@@ -10,6 +10,7 @@ class ExpensesIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllExpenses();
+    $('#balance-pane').css("display", "none");
   }
 
   commentsToggle(e) {

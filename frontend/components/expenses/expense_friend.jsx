@@ -55,6 +55,7 @@ class ExpenseFriend extends React.Component {
 
   componentWillMount() {
     Modal.setAppElement('body');
+    $('#balance-pane').css("display", "block");
   }
 
   calcBalance() {
@@ -62,7 +63,7 @@ class ExpenseFriend extends React.Component {
     /////// TODOOOOOOOOOOO ///////////
     let total = 0;
     this.props.expenses.forEach( e => {
-      if (e.ower_id === this.props.currentUser.id){
+      if (e.ower === this.props.currentUser.username){
         total += e.amount;
       }
       else {
@@ -73,7 +74,21 @@ class ExpenseFriend extends React.Component {
   }
 
   componentDidUpdate() {
-    $("#balance").text(this.calcBalance());
+    let bal = this.calcBalance();
+    let message = "";
+    if (bal < 0){
+      message = `You are owed $${bal * -1}`
+      $("#balance").text(message);
+      $("#balance").css("color", "#5bc5a7");
+    }
+    else if (bal === 0) {
+      $("#balance").text("All settled up!");
+    }
+    else {
+     message = `You owe $${bal}`
+     $("#balance").text(message);
+     $("#balance").css("color", "#ff652f");
+    }
   }
 
   handleSubmit(e) {
@@ -161,9 +176,7 @@ class ExpenseFriend extends React.Component {
             <a id="add-expense-cancel" onClick={this.closeModal}>Cancel</a>
             <button id="add-expense-submit">Submit</button>
           </div>
-          <ul className="errors-div">
-
-          </ul>
+          <ul className="errors-div"></ul>
         </form>
       </Modal>
     )

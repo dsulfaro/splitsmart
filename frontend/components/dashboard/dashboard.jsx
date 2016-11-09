@@ -4,12 +4,16 @@ import { withRouter } from 'react-router';
 
 class Dashboard extends React.Component {
 
+
   render () {
     return (
       <section id="dashboard">
         <FriendsSidebar />
         { this.props.children }
-        <h1 id="balance">Calculating...</h1>
+        <section id="balance-pane">
+          <h2 id="balance-title">Balance</h2>
+          <h3 id="balance">Calculating...</h3>
+        </section>
       </section>
     );
   }
