@@ -16,7 +16,7 @@ class Api::ExpensesController < ApplicationController
       @expense.save
       render 'api/expenses/show'
     else
-      render json: @expense.errors.full_messages
+      render json: @expense.errors.full_messages, status: 422
     end
   end
 

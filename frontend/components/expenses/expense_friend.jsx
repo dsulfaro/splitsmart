@@ -13,7 +13,8 @@ class ExpenseFriend extends React.Component {
                    ower_id: "",
                    description: "",
                    settled: false,
-                   balance: 0};
+                   balance: 0,
+                   errors: ""};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.update = this.update.bind(this);
@@ -21,6 +22,8 @@ class ExpenseFriend extends React.Component {
     this.settleUp = this.settleUp.bind(this);
     this.calcBalance = this.calcBalance.bind(this);
     this.commentsToggle = this.commentsToggle.bind(this);
+    this.validate = this.validate.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   findFriend(id) {
@@ -74,15 +77,47 @@ class ExpenseFriend extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    let bill = {lender_id: this.props.currentUser.id,
-                ower_id: parseInt(this.props.params.id),
-                amount: parseFloat(this.state.amount),
-                total: parseFloat(this.state.total),
-                description: this.state.description,
-                settled: false};
-    this.props.addExpense(bill);
-    this.closeModal();
+    let errs = this.validate();
+    if (errs[0]){
+      for (let i = 0; i < errs.length; i++) {
+        $('.errors-div').append(`<li>${errs[i]}</li>`);
+      }
+    }
+    else {
+      e.preventDefault();
+      let bill = {lender_id: this.props.currentUser.id,
+        ower_id: parseInt(this.props.params.id),
+        amount: parseFloat(this.state.amount),
+        total: parseFloat(this.state.total),
+        description: this.state.description,
+        settled: false};
+        this.props.addExpense(bill);
+        this.closeModal();
+    }
+  }
+
+  validate() {
+    let errs = [];
+    if (this.state.description === ""){
+      errs.push("description cannot be blank. ")
+    }
+    if (this.state.amount === "") {
+      errs.push("amount cannot be blank. ");
+    }
+    if (this.state.total === "") {
+      errs.push("total cannot be blank. ");
+    }
+    if (parseFloat(this.state.amount) > parseFloat(this.state.total)) {
+      errs.push("amount cannot be greater than total. ");
+    }
+    if (isNaN(parseFloat(this.state.amount)) || isNaN(parseFloat(this.state.total))){
+      errs.push("monetary input fields must be numerical")
+    }
+    return errs;
+  }
+
+  renderErrors() {
+
   }
 
   settleUp() {
@@ -126,8 +161,10 @@ class ExpenseFriend extends React.Component {
             <a id="add-expense-cancel" onClick={this.closeModal}>Cancel</a>
             <button id="add-expense-submit">Submit</button>
           </div>
-        </form>
+          <ul className="errors-div">
 
+          </ul>
+        </form>
       </Modal>
     )
   }
