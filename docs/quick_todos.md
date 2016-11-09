@@ -9,5 +9,4 @@
 - expense reducer does the same thing for FETCH and FETCH_ALL - DRY that up
 - settle up modal -- "You owe X this much. Do you want to pay them now? || They owe you Y"
 
-- comments
 - error handling on add bill

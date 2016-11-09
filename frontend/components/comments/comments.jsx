@@ -4,15 +4,35 @@ class Comments extends React.Component {
 
   constructor() {
     super();
+    this.state = {comment: ""}
     this.submitComment = this.submitComment.bind(this);
+    this.isEnter = this.isEnter.bind(this);
   }
 
   submitComment(e) {
-    let comment = {body: $(e.currentTarget).next().val(),
-                   author_id: this.props.currentUser.id,
-                   expense_id: this.props.expenseId}
-    $(e.currentTarget).next().val("");
+    let comment = {};
+    if (e.currentTarget) {
+      comment = {body: $(e.currentTarget).next().val(),
+        author_id: this.props.currentUser.id,
+        expense_id: this.props.expenseId}
+        $(e.currentTarget).next().val("");
+    }
+    else {
+      comment = {body: e.next().val(),
+                author_id: this.props.currentUser.id,
+                expense_id: this.props.expenseId}
+      e.next().val("");
+    }
     this.props.addComment(comment);
+  }
+
+  isEnter(e) {
+    if (e.keyCode == 13) {
+      this.submitComment($(e.currentTarget).prev());
+    }
+    else {
+      return e => this.setState({comment: e.target.value});
+    }
   }
 
   render () {
@@ -31,7 +51,9 @@ class Comments extends React.Component {
               <button className="add-comment-button"
                       onClick={ (e) => this.submitComment(e)}>Add Comment
               </button>
-              <input type="text" className="add-comment-input"/>
+              <input type="text"
+                     className="add-comment-input"
+                     onKeyDown={this.isEnter} />
             </div>
           </ul>
         </div>
@@ -43,7 +65,9 @@ class Comments extends React.Component {
           <button className="add-comment-button"
                   onClick={ (e) => this.submitComment(e)}>Add Comment
           </button>
-          <input type="text" className="add-comment-input"/>
+          <input type="text"
+                 className="add-comment-input"
+                 onKeyDown={this.isEnter} />
         </div>
       )
     }
