@@ -238,9 +238,6 @@ class ExpenseFriend extends React.Component {
             <h2 className="expenses-feed">{this.findFriend(this.props.params.id).username}</h2>
             <div>
               <button
-                className="settle-up"
-                onClick={this.settleUp}>Settle Up</button>
-              <button
                 className="add-bill"
                 onClick={this.openModal}>Add Bill</button>
             </div>
