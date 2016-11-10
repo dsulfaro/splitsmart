@@ -2,8 +2,9 @@ class Api::ExpensesController < ApplicationController
 
   def index
     if params[:friend_id]
+      @settled = current_user.friend_settled(params[:friend_id])
       @expenses = current_user.owes_friend(params[:friend_id])+
-                  current_user.friend_owes(params[:friend_id])
+      current_user.friend_owes(params[:friend_id])
     else
       @expenses = current_user.all_unsettled_expenses
     end
@@ -21,7 +22,14 @@ class Api::ExpensesController < ApplicationController
   end
 
   def update
-
+    @expense = Expense.find_by_id(params[:id])
+    if @expense
+      @expense.settled = true
+      @expense.save
+      render "api/expenses/show"
+    else
+      render json: ["cannot find expense"], status: 422
+    end
   end
 
   def destroy

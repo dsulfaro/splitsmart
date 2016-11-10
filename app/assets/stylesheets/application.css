@@ -780,6 +780,12 @@ header {
 /* ----------------------------------------------------------------- */
 /* ---------- Balance ---------------------------------------------- */
 /* ----------------------------------------------------------------- */
+#dash-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 #balance-pane {
   height: 100px;
   margin-top: 20px;
@@ -799,6 +805,44 @@ header {
   font-size: 18px;
   margin-top: 20px;
   width: 210px;
+}
+/* ----------------------------------------------------------------- */
+/* ---------- History ---------------------------------------------- */
+/* ----------------------------------------------------------------- */
+.transaction-history{
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 12px 12px 15px -4px rgba(0, 0, 0, 0.1), -12px 12px 8px -4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.transaction-history-title {
+  text-align: center;
+  padding: 8px;
+  background-color: #5bc5a7;
+  color: white;
+}
+
+.transaction-history-list {
+  list-style: none;
+}
+
+.transaction-history-list > li {
+  padding: 6px;
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+}
+
+.you-paid {
+  color: #ff652f;
+  font-weight: bold;
+}
+
+.got-paid {
+  color: #5bc5a7;
+  font-weight: bold;
 }
 
 /* ----------------------------------------------------------------- */

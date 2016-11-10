@@ -18,3 +18,21 @@
     end
   end
 end
+
+if @settled
+  @settled.each do |settle|
+    json.set! settle.id do
+      json.id settle.id
+      json.lender settle.lender.username
+      json.ower settle.ower.username
+      json.friend_id settle.lender_id if settle.lender_id != current_user.id
+      json.friend_id settle.ower_id if settle.ower_id != current_user.id
+      json.amount settle.amount
+      json.total settle.total
+      json.description settle.description
+      json.settled settle.settled
+      json.month settle.created_at.to_formatted_s(:short).slice(3, 3)
+      json.day settle.created_at.to_formatted_s(:short).slice(0, 2)
+    end
+  end
+end

@@ -117,6 +117,16 @@ class User < ActiveRecord::Base
            .order(:created_at)
   end
 
+  def friend_settled(friend_id)
+    Expense.includes(:lender, :ower)
+           .where("lender_id = #{friend_id}")
+           .where("ower_id = #{self.id}")
+           .where("settled = true") + Expense.includes(:lender, :ower)
+          .where("lender_id = #{self.id}")
+          .where("ower_id = #{friend_id}")
+          .where("settled = true")
+  end
+
   private
   def ensure_session_token
     self.session_token ||= User.generate_session_token

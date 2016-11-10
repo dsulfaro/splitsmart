@@ -1,11 +1,12 @@
 import { RECEIVE_ALL_EXPENSES,
          RECEIVE_EXPENSES,
          RECEIVE_NEW_EXPENSE,
-         GET_DELETED } from '../actions/expenses_actions';
+         GET_DELETED,
+         RECEIVE_SETTLED,
+         RECEIVE_UPDATE } from '../actions/expenses_actions';
 import { RECEIVE_COMMENT } from '../actions/comment_actions';
 import merge from 'lodash/merge';
 import { values } from 'lodash';
-
 
 const ExpenseReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -32,6 +33,14 @@ const ExpenseReducer = (state = {}, action) => {
         if (newState[i].id === action.comment.expense_id) {
           newState[i].comments.push(action.comment);
           break;
+        }
+      }
+      return newState;
+    case RECEIVE_UPDATE:
+      newState = values(merge({}, state));
+      for (let i = 0; i < newState.length; ++i) {
+        if (newState[i].id === action.expense.id) {
+          newState[i].settled = true;
         }
       }
       return newState;

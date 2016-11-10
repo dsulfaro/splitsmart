@@ -9,7 +9,7 @@ import Dashboard from './dashboard/dashboard';
 import ExpenseFriendContainer from './expenses/expense_friend_container';
 import ExpensesIndexContainer from './expenses/expenses_index_container';
 import { fetchAllFriends } from '../actions/friend_actions';
-import { fetchExpenses } from '../actions/expenses_actions';
+import { fetchExpenses, fetchSettled } from '../actions/expenses_actions';
 
 class Root extends React.Component {
 

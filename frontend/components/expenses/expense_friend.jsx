@@ -23,7 +23,20 @@ class ExpenseFriend extends React.Component {
     this.calcBalance = this.calcBalance.bind(this);
     this.commentsToggle = this.commentsToggle.bind(this);
     this.validate = this.validate.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+  }
+
+  formatAmount(amount) {
+    if (String(amount).includes('.')){
+      if (String(amount)[String(amount).length - 2] === '.'){
+        return amount + "0";
+      }
+      else {
+        return amount;
+      }
+    }
+    else {
+      return amount + ".00";
+    }
   }
 
   findFriend(id) {
@@ -63,11 +76,13 @@ class ExpenseFriend extends React.Component {
     /////// TODOOOOOOOOOOO ///////////
     let total = 0;
     this.props.expenses.forEach( e => {
-      if (e.ower === this.props.currentUser.username){
-        total += e.amount;
-      }
-      else {
-        total -= e.amount;
+      if (e.settled === false) {
+        if (e.ower === this.props.currentUser.username){
+          total += e.amount;
+        }
+        else {
+          total -= e.amount;
+        }
       }
     });
     return total;
@@ -77,7 +92,9 @@ class ExpenseFriend extends React.Component {
     let bal = this.calcBalance();
     let message = "";
     if (bal < 0){
-      message = `You are owed $${bal * -1}`
+      bal *= -1;
+      bal = this.formatAmount(bal)
+      message = `You are owed $${bal}`
       $("#balance").text(message);
       $("#balance").css("color", "#5bc5a7");
     }
@@ -85,7 +102,7 @@ class ExpenseFriend extends React.Component {
       $("#balance").text("All settled up!");
     }
     else {
-     message = `You owe $${bal}`
+     message = `You owe $${this.formatAmount(bal)}`
      $("#balance").text(message);
      $("#balance").css("color", "#ff652f");
     }
@@ -131,12 +148,12 @@ class ExpenseFriend extends React.Component {
     return errs;
   }
 
-  renderErrors() {
-
-  }
-
   settleUp() {
-    this.props.expenses.forEach( e => this.props.deleteExpense(e.id));
+    this.props.expenses.forEach( e => {
+      if (e.settled === false && e.ower === this.props.currentUser.username) {
+        this.props.updateExpense(e.id)
+      }
+    });
   }
 
   commentsToggle(e) {
@@ -199,18 +216,18 @@ class ExpenseFriend extends React.Component {
           </nav>
           <ul className="expenses-list">
             {this.props.expenses.map( (e, i) => {
-              return <ExpenseIndexItem
-                expense={e}
-                key={i}
-                currentUser={this.props.currentUser}
-                deleteExpense={this.props.deleteExpense}
-                onCommentsToggle={(e) => this.commentsToggle(e)}
-                comments={ e.comments } />;
-            })}
+              if (e.settled === false){
+                return <ExpenseIndexItem
+                  expense={e}
+                  key={i}
+                  currentUser={this.props.currentUser}
+                  deleteExpense={this.props.deleteExpense}
+                  onCommentsToggle={(e) => this.commentsToggle(e)}
+                  comments={ e.comments } />;
+              }
+            } ) }
           </ul>
-
           {this.modal()}
-
         </section>
       );
     }

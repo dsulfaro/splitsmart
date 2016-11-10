@@ -36,3 +36,21 @@ export const deleteExpenseUtil = (success, id, error) => {
     error
   });
 };
+
+export const fetchSettledUtil = (success, friend_id, error) => {
+  $.ajax({
+    method: 'GET',
+    url: 'api/expenses',
+    data: {settled: true, friend_id: friend_id},
+    success
+  });
+};
+
+export const updateExpenseUtil = (success, expense_id, error) => {
+  $.ajax({
+    method: 'PUT',
+    url: `api/expenses/${expense_id}`,
+    success,
+    error
+  });
+};

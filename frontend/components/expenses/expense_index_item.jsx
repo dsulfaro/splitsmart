@@ -15,7 +15,8 @@ class ExpenseIndexItem extends React.Component {
     this.reroute = this.reroute.bind(this);
   }
 
-  openDelete() {
+  openDelete(e) {
+    e.stopPropagation();
     this.setState({ isDeleteOpen: true});
   }
 
@@ -42,11 +43,13 @@ class ExpenseIndexItem extends React.Component {
   }
 
   truncateDescription() {
-    if (this.props.expense.description.length > 24){
-      return this.props.expense.description.slice(0, 24) + "...";
-    }
-    else {
-      return this.props.expense.description
+    if (this.props.expense.description){
+      if (this.props.expense.description.length > 24){
+        return this.props.expense.description.slice(0, 24) + "...";
+      }
+      else {
+        return this.props.expense.description
+      }
     }
   }
 
@@ -101,7 +104,7 @@ class ExpenseIndexItem extends React.Component {
               <h3 className="amount">${this.formatAmount(this.props.expense.amount)}</h3>
             </div>
             {this.settleButton()}
-            <button className="delete-expense" onClick={this.openDelete}>X</button>
+            <button className="delete-expense" onClick={ e => {this.openDelete(e)}}>X</button>
             <br />
 
             <Modal

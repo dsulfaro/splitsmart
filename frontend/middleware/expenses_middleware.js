@@ -2,7 +2,9 @@ import {
   fetchAllUnsettled,
   fetchUnsettled,
   addExpenseUtil,
-  deleteExpenseUtil
+  deleteExpenseUtil,
+  fetchSettledUtil,
+  updateExpenseUtil
 } from '../util/expenses_api_util';
 
 import {
@@ -26,7 +28,12 @@ import {
   addExpense,
   receiveNewExpense,
   deleteExpense,
-  getDeleted
+  getDeleted,
+  FETCH_SETTLED,
+  receiveSettled,
+  updateExpense,
+  UPDATE_EXPENSE,
+  receiveUpdate
 } from '../actions/expenses_actions';
 
 export default ({ getState, dispatch }) => next => action => {
@@ -36,6 +43,8 @@ export default ({ getState, dispatch }) => next => action => {
   const addExpenseSuccess = expense => dispatch(receiveNewExpense(expense));
   const deleteExpenseSuccess = expense => dispatch(getDeleted(expense));
   const addCommentSuccess = comment => dispatch(receiveComment(comment));
+  const fetchSettledSuccess = settled => dispatch(receiveSettled(settled));
+  const receiveUpdateSuccess = expense => dispatch(receiveUpdate(expense));
   const error = err => console.log(`error-in-middleware: ${err}`);
 
   switch (action.type) {
@@ -53,6 +62,12 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case ADD_COMMENT:
       addCommentUtil(addCommentSuccess, action.comment, error)
+      return next(action);
+    case FETCH_SETTLED:
+      fetchSettledUtil(fetchSettledSuccess, action.friend_id)
+      return next(action);
+    case UPDATE_EXPENSE:
+      updateExpenseUtil(receiveUpdateSuccess, action.id, error)
       return next(action);
     default:
       return next(action);
