@@ -1,6 +1,7 @@
 import React from 'react';
 import ExpenseIndexItem from './expense_index_item';
 import Modal from 'react-modal';
+import { hashHistory } from 'react-router';
 
 class ExpenseFriend extends React.Component {
 
@@ -87,22 +88,27 @@ class ExpenseFriend extends React.Component {
   }
 
   componentDidUpdate() {
-    let bal = this.calcBalance();
-    let message = "";
-    if (bal < 0){
-      bal *= -1;
-      bal = this.formatAmount(bal)
-      message = `You are owed $${bal}`
-      $("#balance").text(message);
-      $("#balance").css("color", "#5bc5a7");
-    }
-    else if (bal === 0) {
-      $("#balance").text("All settled up!");
+    if (this.props.currentUser){
+      let bal = this.calcBalance();
+      let message = "";
+      if (bal < 0){
+        bal *= -1;
+        bal = this.formatAmount(bal)
+        message = `You are owed $${bal}`
+        $("#balance").text(message);
+        $("#balance").css("color", "#5bc5a7");
+      }
+      else if (bal === 0) {
+        $("#balance").text("All settled up!");
+      }
+      else {
+        message = `You owe $${this.formatAmount(bal)}`
+        $("#balance").text(message);
+        $("#balance").css("color", "#ff652f");
+      }
     }
     else {
-     message = `You owe $${this.formatAmount(bal)}`
-     $("#balance").text(message);
-     $("#balance").css("color", "#ff652f");
+      hashHistory.replace("/");
     }
   }
 

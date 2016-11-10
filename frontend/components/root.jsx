@@ -25,8 +25,13 @@ class Root extends React.Component {
     }
   }
 
-  fetchSingleFriend(nextState) {
-    this.props.store.dispatch(fetchExpenses(nextState.params.id));
+  fetchSingleFriend(nextState, replace) {
+    if (this.props.store.getState().session.currentUser) {
+      this.props.store.dispatch(fetchExpenses(nextState.params.id));
+    }
+    else {
+      replace("/");
+    }
   }
 
   render() {
