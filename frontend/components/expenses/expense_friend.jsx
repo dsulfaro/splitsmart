@@ -8,6 +8,7 @@ class ExpenseFriend extends React.Component {
   constructor(props) {
     super(props);
     this.state = { modalIsOpen: false,
+                   settleModalIsOpen: false,
                    amount: "",
                    total: "",
                    lender_id: "",
@@ -17,7 +18,9 @@ class ExpenseFriend extends React.Component {
                    balance: 0,
                    errors: ""};
     this.openModal = this.openModal.bind(this);
+    this.openSettleModal = this.openSettleModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.closeSettleModal = this.closeSettleModal.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.settleUp = this.settleUp.bind(this);
@@ -59,12 +62,17 @@ class ExpenseFriend extends React.Component {
     this.setState({ modalIsOpen: true });
   }
 
-  afterOpenModal() {
-    this.refs.subtitle.style.color = "#f00";
+  openSettleModal() {
+    this.setState({ settleModalIsOpen: true});
+    console.log(this.state.settleModalIsOpen);
   }
 
   closeModal() {
     this.setState({ modalIsOpen: false });
+  }
+
+  closeSettleModal() {
+    this.setState({ settleModalIsOpen: false });
   }
 
   componentWillMount() {
@@ -158,10 +166,29 @@ class ExpenseFriend extends React.Component {
         this.props.updateExpense(e.id)
       }
     });
+    this.closeSettleModal();
   }
 
   commentsToggle(e) {
     $($(e.currentTarget).next()).slideToggle(300);
+  }
+
+  settleModal() {
+    return (
+      <Modal
+        isOpen={this.state.settleModalIsOpen}
+        onRequestClose={this.closeSettleModal}
+        contentLabel={"Settle Modal"}
+        className="delete-modal">
+        <header>
+          <h2>Pay off your expenses?</h2>
+        </header>
+        <div className="delete-choices">
+          <button className="y" onClick={this.settleUp}>Yes</button>
+          <button className="y" onClick={this.closeSettleModal}>No</button>
+        </div>
+      </Modal>
+    )
   }
 
   modal() {
@@ -212,7 +239,7 @@ class ExpenseFriend extends React.Component {
             <div>
               <button
                 className="settle-up"
-                onClick={this.settleUp}>Settle Up</button>
+                onClick={this.openSettleModal}>Settle Up</button>
               <button
                 className="add-bill"
                 onClick={this.openModal}>Add Bill</button>
@@ -232,6 +259,7 @@ class ExpenseFriend extends React.Component {
             } ) }
           </ul>
           {this.modal()}
+          {this.settleModal()}
         </section>
       );
     }
