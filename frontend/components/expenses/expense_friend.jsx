@@ -72,8 +72,6 @@ class ExpenseFriend extends React.Component {
   }
 
   calcBalance() {
-
-    /////// TODOOOOOOOOOOO ///////////
     let total = 0;
     this.props.expenses.forEach( e => {
       if (e.settled === false) {
@@ -157,7 +155,7 @@ class ExpenseFriend extends React.Component {
   }
 
   commentsToggle(e) {
-    $(e.currentTarget).next().toggleClass("show-comments");
+    $($(e.currentTarget).next()).slideToggle(300);
   }
 
   modal() {

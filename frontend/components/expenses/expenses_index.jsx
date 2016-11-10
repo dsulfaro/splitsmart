@@ -14,7 +14,7 @@ class ExpensesIndex extends React.Component {
   }
 
   commentsToggle(e) {
-    $(e.currentTarget).next().toggleClass("show-comments");
+    $($(e.currentTarget).next()).slideToggle(300);
   }
 
   renderNav() {

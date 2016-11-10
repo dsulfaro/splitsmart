@@ -109,6 +109,18 @@ header {
   color: #222;
   font-size: 14px;
   border-radius: 0px 0px 8px 8px;
+  transform: translateY(-2em);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.show {
+  visibility: visible; /* shows sub-menu */
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.3s;
 }
 
 .login-form input {
@@ -152,9 +164,6 @@ header {
   background-color: #c83400;
 }
 
-.show {
-  visibility: visible;
-}
 
 /* ----------------------------------------------------------------- */
 /* ---------- Sign Up ---------------------------------------------- */
@@ -610,9 +619,6 @@ header {
   display: none;
 }
 
-.show-comments {
-  display: block;
-}
 
 .comments-list {
   list-style: none;
