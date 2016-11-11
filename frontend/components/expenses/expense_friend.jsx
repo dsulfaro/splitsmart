@@ -63,8 +63,13 @@ class ExpenseFriend extends React.Component {
   }
 
   openSettleModal() {
-    this.setState({ settleModalIsOpen: true});
-    console.log(this.state.settleModalIsOpen);
+    if (this.calcBalance() < 0){
+      alert("You don't owe anything!");
+    }
+    else {
+      this.setState({ settleModalIsOpen: true});
+      console.log(this.state.settleModalIsOpen);
+    }
   }
 
   closeModal() {

@@ -76,8 +76,8 @@ Friendship.create!({user_id: 1, friend_id: 10, status: 'pending'})
 Friendship.create!({user_id: 11, friend_id: 1, status: 'requesting'})
 Friendship.create!({user_id: 1, friend_id: 11, status: 'pending'})
 
-Expense.create!({lender_id: 1,
-                ower_id: 2,
+Expense.create!({lender_id: 2,
+                ower_id: 1,
                 amount: 5.00,
                 total: 10.00,
                 description: "sweet lightsaber decals",
@@ -132,8 +132,8 @@ Expense.create!({lender_id: 1,
                 description: "robot hand oil",
                 settled: true });
 
-Expense.create!({lender_id: 1,
-                ower_id: 3,
+Expense.create!({lender_id: 3,
+                ower_id: 1,
                 amount: 8.75,
                 total: 10.00,
                 description: "laughing gas",
@@ -146,15 +146,15 @@ Expense.create!({lender_id: 1,
                 description: "clown makeup",
                 settled: false });
 
-Expense.create!({lender_id: 1,
-                ower_id: 3,
+Expense.create!({lender_id: 3,
+                ower_id: 1,
                 amount: 12.00,
                 total: 20.00,
                 description: "sushirrito",
                 settled: false });
 
-Expense.create!({lender_id: 1,
-                ower_id: 3,
+Expense.create!({lender_id: 3,
+                ower_id: 1,
                 amount: 33.00,
                 total: 33.00,
                 description: "confetti, balloons, dynamite",
@@ -189,8 +189,8 @@ Expense.create!({lender_id: 1,
                 description: "nose job",
                 settled: false });
 
-Expense.create!({lender_id: 1,
-                ower_id: 5,
+Expense.create!({lender_id: 5,
+                ower_id: 1,
                 amount: 50.00,
                 total: 100.00,
                 description: "LOTZ OF BUTTER BEEEEERRR",
@@ -210,8 +210,8 @@ Expense.create!({lender_id: 5,
                 description: "dark arts lessons",
                 settled: true });
 
-Expense.create!({lender_id: 1,
-                ower_id: 5,
+Expense.create!({lender_id: 5,
+                ower_id: 1,
                 amount: 1.00,
                 total: 4.00,
                 description: "magic pizza",
