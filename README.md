@@ -34,6 +34,4 @@ Simple form for filling out a bill complete with error handling.
 - Invite friends via email.
 - Venmo account support.
 - Email reminders.
-- 
-
 
