@@ -862,6 +862,18 @@ footer {
   position: fixed;
   bottom: 0;
   border-top: 2px solid #aaa;
+  display: flex;
+}
+
+#footer-list {
+  margin-left: 20px;
+  border-left: 1px solid white;
+  list-style-type: none;
+}
+
+#footer-list > li {
+  display: inline-block;
+  margin-left: 20px;
 }
 
 /* ----------------------------------------------------------------- */

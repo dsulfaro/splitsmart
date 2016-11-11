@@ -101,6 +101,7 @@ class ExpenseFriend extends React.Component {
   }
 
   componentDidUpdate() {
+    debugger
     if (this.props.currentUser){
       let bal = this.calcBalance();
       let message = "";
