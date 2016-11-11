@@ -101,7 +101,6 @@ class ExpenseFriend extends React.Component {
   }
 
   componentDidUpdate() {
-    debugger
     if (this.props.currentUser){
       let bal = this.calcBalance();
       let message = "";
@@ -197,6 +196,8 @@ class ExpenseFriend extends React.Component {
     )
   }
 
+
+
   modal() {
     return (
       <Modal
@@ -237,55 +238,60 @@ class ExpenseFriend extends React.Component {
   }
 
   render () {
-    if (this.props.loading === false){
-      return (
-        <section className="expenses-main">
-          <nav className="expenses-nav">
-            <h2 className="expenses-feed">{this.findFriend(this.props.params.id).username}</h2>
-            <div>
-              <button
-                className="settle-up"
-                onClick={this.openSettleModal}>Settle Up</button>
-              <button
-                className="add-bill"
-                onClick={this.openModal}>Add Bill</button>
-            </div>
-          </nav>
-          <ul className="expenses-list">
-            {this.props.expenses.map( (e, i) => {
-              if (e.settled === false){
-                return <ExpenseIndexItem
-                  expense={e}
-                  key={i}
-                  currentUser={this.props.currentUser}
-                  deleteExpense={this.props.deleteExpense}
-                  onCommentsToggle={(e) => this.commentsToggle(e)}
-                  comments={ e.comments } />;
-              }
-            } ) }
-          </ul>
-          {this.modal()}
-          {this.settleModal()}
-        </section>
-      );
+    if (!this.props.currentUser) {
+      hashHistory.push('/');
     }
     else {
-      return (
-        <section className="expenses-main">
-          <nav className="expenses-nav">
-            <h2 className="expenses-feed">{this.findFriend(this.props.params.id).username}</h2>
-            <div>
-              <button
-                className="settle-up"
-                onClick={this.openSettleModal}>Settle Up</button>
-              <button
-                className="add-bill"
-                onClick={this.openModal}>Add Bill</button>
-            </div>
-          </nav>
-          <div className="loader">Loading...</div>
-        </section>
-      );
+      if (this.props.loading === false){
+        return (
+          <section className="expenses-main">
+            <nav className="expenses-nav">
+              <h2 className="expenses-feed">{this.findFriend(this.props.params.id).username}</h2>
+              <div>
+                <button
+                  className="settle-up"
+                  onClick={this.openSettleModal}>Settle Up</button>
+                <button
+                  className="add-bill"
+                  onClick={this.openModal}>Add Bill</button>
+              </div>
+            </nav>
+            <ul className="expenses-list">
+              {this.props.expenses.map( (e, i) => {
+                if (e.settled === false){
+                  return <ExpenseIndexItem
+                    expense={e}
+                    key={i}
+                    currentUser={this.props.currentUser}
+                    deleteExpense={this.props.deleteExpense}
+                    onCommentsToggle={(e) => this.commentsToggle(e)}
+                    comments={ e.comments } />;
+                }
+              } ) }
+            </ul>
+            {this.modal()}
+            {this.settleModal()}
+          </section>
+        );
+      }
+      else {
+        return (
+          <section className="expenses-main">
+            <nav className="expenses-nav">
+              <h2 className="expenses-feed">{this.findFriend(this.props.params.id).username}</h2>
+              <div>
+                <button
+                  className="settle-up"
+                  onClick={this.openSettleModal}>Settle Up</button>
+                <button
+                  className="add-bill"
+                  onClick={this.openModal}>Add Bill</button>
+              </div>
+            </nav>
+            <div className="loader">Loading...</div>
+          </section>
+        );
+      }
     }
   }
 }
