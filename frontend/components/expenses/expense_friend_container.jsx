@@ -9,7 +9,8 @@ const mapStateToProps = store => {
   return ({
     expenses: selectExpenses(store.expenses),
     currentUser: store.session.currentUser,
-    friends: store.friends.friends
+    friends: store.friends.friends,
+    loading: store.loading
   });
 };
 

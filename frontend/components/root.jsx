@@ -5,7 +5,7 @@ import App from './app';
 
 import SignupFormContainer from './signup/signup_form_container';
 import SplashContainer from './splash/splash_container';
-import Dashboard from './dashboard/dashboard';
+import DashboardContainer from './dashboard/dashboard_container';
 import ExpenseFriendContainer from './expenses/expense_friend_container';
 import ExpensesIndexContainer from './expenses/expenses_index_container';
 import { fetchAllFriends } from '../actions/friend_actions';
@@ -41,7 +41,7 @@ class Root extends React.Component {
           <Route path="/" component={App}>
             <IndexRoute component={ SplashContainer }
                         onEnter={this._redirectIfLoggedIn} />
-            <Route path="/dashboard" component={ Dashboard }>
+                      <Route path="/dashboard" component={ DashboardContainer }>
               <IndexRoute component={ ExpensesIndexContainer } />
               <Route path="/friends/:id" component={ExpenseFriendContainer}
                      onEnter={this.fetchSingleFriend}/>
