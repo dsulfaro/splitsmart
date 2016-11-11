@@ -14,13 +14,15 @@ class ApplicationController < ActionController::Base
 
   def login!(user)
     # debugger
-    user.reset_session_token
+    if user.username != "guest"
+      user.reset_session_token
+    end
     session[:session_token] = user.session_token
     @current_user = user
   end
 
   def logout!
-    if current_user == "guest"
+    if current_user.username == "guest"
       session[:session_token] = nil
       @current_user = nil
     else
