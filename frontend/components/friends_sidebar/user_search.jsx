@@ -46,16 +46,18 @@ class UserSearch extends React.Component {
   render () {
     return (
       <section id="user-search">
-        <h4 id="find-friends">Find Friends</h4>
+        <h4 id="find-friends">Find New Friends</h4>
         <input type="text"
           id="user-search-input"
           value={this.state.search}
           onChange={this.update()}
-          placeholder="...here" />
+          placeholder="ex: cruella" />
         <section id="filtered-users">
-          <ul id="filtered-users-list">
-            {this.matchUsers()}
-          </ul>
+          <div id="temp">
+            <ul id="filtered-users-list">
+              {this.matchUsers()}
+            </ul>
+          </div>
         </section>
       </section>
     )

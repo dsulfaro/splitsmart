@@ -35,6 +35,10 @@
 body{
   margin-bottom: 60px;
 }
+
+button{
+  cursor: pointer;
+}
  /* ----------------------------------------------------------------- */
  /* ---------- Navbar ----------------------------------------------- */
  /* ----------------------------------------------------------------- */
@@ -350,10 +354,10 @@ header {
 
 #user-search {
   margin-top: 5px;
-  border: 1px solid #e5e5e5;
 }
 
 #find-friends {
+  border: 1px solid #e5e5e5;
   font-size: 14px;
   padding: 3px;
   text-shadow: 0 -1px 0 #318970;
@@ -376,10 +380,16 @@ header {
   box-shadow: 0 0 10px #ff874f;
 }
 
+#temp {
+  overflow: hidden;
+}
+
 #filtered-users-list {
   margin-top: -1px;
   list-style: none;
   font-size: 14px;
+  height: 150px;
+  overflow: auto;
 }
 
 #filtered-users-list > li {

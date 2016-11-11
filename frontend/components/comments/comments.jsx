@@ -27,8 +27,14 @@ class Comments extends React.Component {
   }
 
   isEnter(e) {
-    if (e.keyCode == 13) {
-      this.submitComment($(e.currentTarget).prev());
+    if (e.keyCode == 13) {  
+      if ($(e.currentTarget).val() === ""){
+        $(e.currentTarget).attr("placeholder", "Comment can't be blank");
+      }
+      else {
+        $(e.currentTarget).attr("placeholder", "");
+        this.submitComment($(e.currentTarget).prev());
+      }
     }
     else {
       return e => this.setState({comment: e.target.value});
