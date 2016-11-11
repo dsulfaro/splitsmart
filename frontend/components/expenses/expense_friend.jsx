@@ -162,6 +162,9 @@ class ExpenseFriend extends React.Component {
     if (isNaN(parseFloat(this.state.amount)) || isNaN(parseFloat(this.state.total))){
       errs.push("monetary input fields must be numerical")
     }
+    if (parseFloat(this.state.amount) < 0 || parseFloat(this.state.total) < 0){
+      errs.push("values cannot be negative");
+    }
     return errs;
   }
 
