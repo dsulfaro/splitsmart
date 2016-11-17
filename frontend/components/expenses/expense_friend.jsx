@@ -68,7 +68,6 @@ class ExpenseFriend extends React.Component {
     }
     else {
       this.setState({ settleModalIsOpen: true});
-      console.log(this.state.settleModalIsOpen);
     }
   }
 
